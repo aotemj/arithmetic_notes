@@ -22,5 +22,33 @@
  * @return {string}
  */
 var longestCommonPrefix = function (strs) {
+    let firstStr = strs[0]
+    let subIndex = 1
+    let commonStartStr = firstStr.substring(0, subIndex)
+    if (!commonStartStr) return ''
+    while (firstStr.length >= commonStartStr.length && subIndex <= firstStr.length) {
+        let index = 1;
+        let flag = true
+        while (index < strs.length && flag) {
+            let currentStr = strs[index]
+            if (!currentStr.startsWith(commonStartStr)) {
+                flag = false
+                break;
+            }
+            index++;
+        }
+        if (flag) {
+            subIndex++;
+            commonStartStr = firstStr.substring(0, subIndex)
+        } else {
+            commonStartStr = firstStr.substring(0, subIndex - 1)
+            break;
+        }
 
+    }
+    return commonStartStr ? commonStartStr : ''
 };
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+// console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+// console.log(longestCommonPrefix(["c", "c"]));
+console.log(longestCommonPrefix(["", ""]));
