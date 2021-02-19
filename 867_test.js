@@ -27,19 +27,40 @@
  * @param {number[][]} matrix
  * @return {number[][]}
  */
-var transpose = function (matrix) {
-    let newArr = []
-    const length = matrix.length
-    const subLength = matrix[0].length
-    for (let i = 0; i < subLength; i++) {
-        let subArr = []
-        for (let j = 0; j < length; j++) {
-            subArr.push(matrix[j][i])
-        }
-        newArr.push(subArr)
-    }
-    return newArr
-};
+
+// method 1
+// var transpose = function (matrix) {
+//     let newArr = []
+//     const length = matrix.length
+//     const subLength = matrix[0].length
+//     for (let i = 0; i < subLength; i++) {
+//         let subArr = []
+//         for (let j = 0; j < length; j++) {
+//             subArr.push(matrix[j][i])
+//         }
+//         newArr.push(subArr)
+//     }
+//     return newArr
+// };
+
+
+// method 2
+    // matrix[i,j] = matrix[j,i]
+// var transpose = function (matrix) {
+//         let newArr = []
+//         for (const i in matrix) {
+//             for (const j in matrix[i]) {
+//                 if (!newArr[j]) {
+//                     newArr[j] = []
+//                 }
+//
+//                 newArr[j][i] = matrix[i][j]
+//             }
+//         }
+//         return newArr
+//     }
+
+
 console.log(transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 console.log(transpose([[1, 2, 3], [4, 5, 6]]));
 
