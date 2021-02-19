@@ -60,6 +60,12 @@
 //         return newArr
 //     }
 
+// method3
+var transpose = function (A) {
+        return A[0].map((_, idx) => {
+            return A.map(row => row[idx])
+        })
+    }
 
 console.log(transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 console.log(transpose([[1, 2, 3], [4, 5, 6]]));
