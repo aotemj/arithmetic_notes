@@ -27,19 +27,32 @@
  * @param {number[][]} matrix
  * @return {number[][]}
  */
-var transpose = function (matrix) {
-  let newArr = []
+// var transpose = function (matrix) {
+//   let newArr = []
+//
+//   for (const i in matrix) {
+//     for (const j in matrix[i]) {
+//       if (!newArr[j]) {
+//         newArr[j] = []
+//       }
+//       newArr[j][i] = matrix[i][j]
+//     }
+//   }
+//   return newArr
+// };
 
-  for (const i in matrix) {
-    for (const j in matrix[i]) {
-      if (!newArr[j]) {
-        newArr[j] = []
-      }
-      newArr[j][i] = matrix[i][j]
-    }
-  }
-  return newArr
-};
+// method2
+
+var transpose = function (matrix) {
+  return matrix[0].map((_, index) => {
+    return matrix.map((value) => value[index]
+    )
+  })
+}
+
 console.log(transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 console.log(transpose([[1, 2, 3], [4, 5, 6]]));
 
+// 123
+// 456
+// 789
