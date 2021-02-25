@@ -41,7 +41,7 @@ var findString = function (words, s) {
             left++
         }
         while (left < right && !words[right]) {
-            right++
+            right--
         }
 
         mid = parseInt((left + right) / 2)
