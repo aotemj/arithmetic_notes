@@ -1,9 +1,6 @@
 /**
  * 使用滑动窗口进行二分查找
  */
-
-
-
 function binarySearch(nums, target) {
     let left = 0, right = nums.length - 1, middle = -1
     while (left <= right) {
