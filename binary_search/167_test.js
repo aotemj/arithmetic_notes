@@ -35,23 +35,42 @@
  * @param {number} target
  * @return {number[]}
  */
+// var twoSum = function (numbers, target) {
+//     let left = 0, right = numbers.length - 1, mid = 0
+//     while (left <= right) {
+//         let leftNum = numbers[left], rightNum = numbers[right]
+//         if (leftNum + rightNum === target) {
+//             return [left + 1, right + 1]
+//         } else if (leftNum + rightNum < target) {
+//             left += 1
+//         } else if (leftNum + rightNum > target) {
+//             right -= 1
+//         }
+//     }
+// };
+
+/**
+ * method2 暴力枚举
+ * @param numbers
+ * @param target
+ * @returns {number[]}
+ */
 var twoSum = function (numbers, target) {
-    let left = 0, right = numbers.length - 1, mid = 0
-    while (left <= right) {
-        let leftNum = numbers[left], rightNum = numbers[right]
-        if (leftNum + rightNum === target) {
-            return [left + 1, right + 1]
-        } else if (leftNum + rightNum < target) {
-            left += 1
-        } else if (leftNum + rightNum > target) {
-            right -= 1
+    let l = numbers.length
+    for (let i = 0; i < l; i++) {
+        for (let j = i + 1; j < l; j++) {
+            let sum = numbers[i] + numbers[j]
+            if (sum === target) {
+                return [i + 1, j + 1]
+            }
         }
     }
 };
 
-// console.log(twoSum([2, 7, 11, 15], 9));
-// console.log(twoSum([2, 3, 4], 6));
-// console.log(twoSum([-1, 5, 7, 9, 10, 13], 6));
+
+console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum([2, 3, 4], 6));
+console.log(twoSum([-1, 5, 7, 9, 10, 13], 6));
 console.log(twoSum([-1, 0], -1));
-// console.log(twoSum([-1000, -1, 0, 1], 1));
+console.log(twoSum([-1000, -1, 0, 1], 1));
 
