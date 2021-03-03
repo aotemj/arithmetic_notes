@@ -44,8 +44,31 @@
  * @param {number[]} arr
  * @return {number}
  */
-var peakIndexInMountainArray = function (arr) {
-    return arr.indexOf(Math.max(...arr))
-};
+// var peakIndexInMountainArray = function (arr) {
+//     return arr.indexOf(Math.max(...arr))
+// };
 
-console.log(peakIndexInMountainArray([24, 69, 100, 99, 79, 78, 67, 36, 26, 19]));
+/**
+ * method2 二分法
+ * @param arr
+ */
+var peakIndexInMountainArray = function (arr) {
+    let left = 1, right = arr.length - 2, mid = 0
+    while (left <= right) {
+        while (arr[left] < arr[left + 1]) {
+            left += 1
+        }
+        while (arr[right - 1] > arr[right]) {
+            right -= 1
+        }
+        
+        mid = parseInt((left + right) / 2)
+        if ((left === mid && left === right) || (arr[mid] > arr[left] && arr[mid] > arr[right])) {
+            return mid
+        }
+    }
+}
+
+// console.log(peakIndexInMountainArray([24, 69, 100, 99, 79, 78, 67, 36, 26, 19]));
+// console.log(peakIndexInMountainArray([3, 4, 5, 1]));
+console.log(peakIndexInMountainArray([0, 10, 5, 2]));
