@@ -38,11 +38,29 @@
  * @param {number} k
  * @return {number[][]}
  */
-var shiftGrid = function(grid, k) {
-
+var shiftGrid = function (grid, k) {
+  let i = 0, l = grid.length, cl = grid[0].length, transmitArr = [], res = []
+  for (let j = 0; j < l; j++) {
+    transmitArr = transmitArr.concat(grid[j])
+  }
+  while (i < k) {
+    const last = transmitArr.pop()
+    transmitArr.unshift(last)
+    i++;
+  }
+  const tl = l * cl
+  for (let j = 0; j < tl; j += cl) {
+    res.push(transmitArr.slice(j, j + cl))
+  }
+  return res
 };
 
-let a = '123123';
-let b = a;
-a = 'a'
-console.log(b);
+// let grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]], k = 1
+let grid = [[3, 8, 1, 9], [19, 7, 2, 5], [4, 6, 11, 10], [12, 0, 21, 13]], k = 4
+
+console.log(shiftGrid(grid, k));
+
+// let a = '123123';
+// let b = a;
+// a = 'a'
+// console.log(b);
