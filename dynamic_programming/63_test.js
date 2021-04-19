@@ -45,34 +45,60 @@ let map = {
     '11': 1,
     '10': 1,
     '01': 1,
-    "12": 1,
 }
+let executeCount = 0
 var uniquePathsWithObstacles = function (obstacleGrid) {
-    const l = obstacleGrid.length, subL = obstacleGrid[0].length
-    if (l > 2 && subL > 2) {
-        if (obstacleGrid[l - 2][subL - 1]) {
-            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.map(subArr => subArr.slice(0, subL - 1)))
-        } else if (obstacleGrid[l - 1][subL - 2]) {
-            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.slice(0, l - 1))
+    const l = obstacleGrid.length - 1, subL = obstacleGrid[0].length - 1
+
+    if (!executeCount) {
+        if (obstacleGrid[l][subL] || obstacleGrid[0][0]) {
+            return 0
+        }
+    }
+    executeCount++
+    if (l > 1 && subL > 1) {
+        if (obstacleGrid[l - 1][subL] && obstacleGrid[l][subL - 1]) return 0
+        if (obstacleGrid[l - 1][subL]) {
+            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.map(subArr => subArr.slice(0, subL)))
+        } else if (obstacleGrid[l][subL - 1]) {
+            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.slice(0, l))
         } else {
-            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.map(subArr => subArr.slice(0, subL - 1))) + uniquePathsWithObstacles(obstacleGrid.slice(0, l - 2))
+            map[`${l}${subL}`] = uniquePathsWithObstacles(obstacleGrid.map(subArr => subArr.slice(0, subL))) + uniquePathsWithObstacles(obstacleGrid.slice(0, l))
         }
     } else {
-        map[`${l}${subL}`] = 1
+        if (obstacleGrid[l - 1][obstacleGrid[l - 1].length - 1]) {
+            map[`${l}${subL}`] = 1
+        } else if (obstacleGrid[l][subL - 1]) {
+            map[`${l}${subL}`] = 1
+        } else {
+            map[`${l}${subL}`] = 2
+        }
     }
     return map[`${l}${subL}`]
-
 };
 
+// const obstacleGrid = [
+//     [0, 0, 0],
+//     [0, 1, 1],
+//     [0, 1, 0]
+// ]
 const obstacleGrid = [
-    [0, 0, 0],
-    [0, 1, 0],
-    [0, 0, 1]
+    [0, 0], [0, 1]
 ]
+// const obstacleGrid = [
+//     // [0, 0, 0],
+//     // [0, 1, 0]
+//     [0, 0],
+//     [0, 1],
+//     [0, 0]
+// ]
+// const obstacleGrid = [
+//     [0, 1],
+//     [0, 0]
+// ]
 
-const obstacleGrid = [[0, 0], [0, 1]]
+// const obstacleGrid = [[0, 0], [0, 1]]
 // const obstacleGrid = [[0, 1], [0, 0]]
 
 
 console.log(uniquePathsWithObstacles(obstacleGrid));
-// console.log(map);
