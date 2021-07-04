@@ -1,0 +1,28 @@
+{
+  "name": "arithmetic_notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/losidk/arithmetic_notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/losidk/arithmetic_notes/issues"
+  },
+  "homepage": "https://github.com/losidk/arithmetic_notes#readme",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-standard": "^5.0.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0"
+  }
+}
