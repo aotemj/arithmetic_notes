@@ -6,8 +6,6 @@
 
  注意：你不能在买入股票前卖出股票。
 
-
-
  示例 1:
 
  输入: [7,1,5,3,6,4]
@@ -26,20 +24,20 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-    // 方法1：
-    let min = prices[0],//记录最小值
-        max = 0;//记录最大利润
-    prices.forEach(item => {
-        if (item < min) min = item
-        if (item - min > max) max = item - min
-    })
-    return max
-};
+  // 方法1：
+  let min = prices[0]; let // 记录最小值
+    max = 0// 记录最大利润
+  prices.forEach(item => {
+    if (item < min) min = item
+    if (item - min > max) max = item - min
+  })
+  return max
+}
 
 // console.log(maxProfit([7, 1, 5, 3, 6, 4, 9, 3]));
 // console.log(maxProfit([1, 2])); // 1
 // console.log(maxProfit([1, 1, 0]));//0
 // console.log(maxProfit([7, 6, 4, 3, 1])); // 0
 // console.log(maxProfit([2, 1, 2, 0, 1]));// 1
-console.log(maxProfit([2, 1, 2, 1, 0, 1, 2]));//2
+console.log(maxProfit([2, 1, 2, 1, 0, 1, 2]))// 2
 // console.log(maxProfit([3, 2, 6, 5, 0, 3]));// 4

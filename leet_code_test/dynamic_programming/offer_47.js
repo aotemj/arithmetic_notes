@@ -27,24 +27,24 @@
  *
  */
 var maxValue = function (grid) {
-    let m = grid.length, n = grid[0].length
-    let map = {}
+  let m = grid.length; let n = grid[0].length
+  let map = {}
 
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (i && j) {
-                map[`${i}${j}`] = Math.max(map[`${i - 1}${j}`], map[`${i}${j - 1}`]) + grid[i][j]
-            } else if (i && !j) {
-                map[`${i}${j}`] = map[`${i - 1}${j}`] + grid[i][j]
-            } else if (!i && j) {
-                map[`${i}${j}`] = map[`${i}${j - 1}`] + grid[i][j]
-            } else {
-                map[`${i}${j}`] = grid[0][0]
-            }
-        }
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (i && j) {
+        map[`${i}${j}`] = Math.max(map[`${i - 1}${j}`], map[`${i}${j - 1}`]) + grid[i][j]
+      } else if (i && !j) {
+        map[`${i}${j}`] = map[`${i - 1}${j}`] + grid[i][j]
+      } else if (!i && j) {
+        map[`${i}${j}`] = map[`${i}${j - 1}`] + grid[i][j]
+      } else {
+        map[`${i}${j}`] = grid[0][0]
+      }
     }
-    return map[`${m - 1}${n - 1}`]
-};
+  }
+  return map[`${m - 1}${n - 1}`]
+}
 
 // let grid = [
 //     [1, 3, 1],
@@ -52,10 +52,10 @@ var maxValue = function (grid) {
 //     [4, 2, 1]
 // ]
 let grid = [
-    [0]
+  [0]
 ]
 // let grid = [
 //     [1, 2, 5],
 //     [3, 2, 1]
 // ]
-console.log(maxValue(grid));
+console.log(maxValue(grid))

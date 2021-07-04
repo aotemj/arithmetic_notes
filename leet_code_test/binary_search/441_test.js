@@ -36,12 +36,12 @@
  * @return {number}
  */
 var arrangeCoins = function (n) {
-    let i = 1
-    while (i <= n) {
-        n = n - i
-        i++
-    }
-    return i - 1
-};
+  let i = 1
+  while (i <= n) {
+    n = n - i
+    i++
+  }
+  return i - 1
+}
 
-console.log(arrangeCoins(5));
+console.log(arrangeCoins(5))

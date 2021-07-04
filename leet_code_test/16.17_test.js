@@ -12,25 +12,24 @@
  如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  */
 
-
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var maxSubArray = function (nums) {
-    let sum = 0
-    let length = nums.length
-    let res = nums[0]
-    for (let i = 0; i < length; i++) {
-        const item = nums[i]
-        if (sum > 0) {
-            sum += item
-        } else {
-            sum = item
-        }
-        res = Math.max(res, sum)
+  let sum = 0
+  let length = nums.length
+  let res = nums[0]
+  for (let i = 0; i < length; i++) {
+    const item = nums[i]
+    if (sum > 0) {
+      sum += item
+    } else {
+      sum = item
     }
-    return res
-};
+    res = Math.max(res, sum)
+  }
+  return res
+}
 // console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
-console.log(maxSubArray([-2]));
+console.log(maxSubArray([-2]))

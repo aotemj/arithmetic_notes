@@ -18,37 +18,36 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-    let arr = [];
-    let reverseArr = []
+  let arr = []
+  let reverseArr = []
 
-    function formatChar(char) {
-        if (!char.trim() || !char) return null
-        if (char >= 'A' && char <= 'Z') {
-            return char.toLowerCase()
-        } else if ((char >= 'a' && char <= 'z') || ((char - 0) >= 0 && (char - 0) <= 9)) {
-            return char
-        } else {
-            return null
-        }
+  function formatChar (char) {
+    if (!char.trim() || !char) return null
+    if (char >= 'A' && char <= 'Z') {
+      return char.toLowerCase()
+    } else if ((char >= 'a' && char <= 'z') || ((char - 0) >= 0 && (char - 0) <= 9)) {
+      return char
+    } else {
+      return null
     }
+  }
 
-    for (let i = 0; i < s.length; i++) {
-        if(formatChar(s[i])){
-            arr.push(formatChar(s[i]))
-            reverseArr.unshift(formatChar(s[i]))
-        }
-
+  for (let i = 0; i < s.length; i++) {
+    if (formatChar(s[i])) {
+      arr.push(formatChar(s[i]))
+      reverseArr.unshift(formatChar(s[i]))
     }
-    let target = true
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] != reverseArr[i]) {
-            target = false
-            break
-        }
+  }
+  let target = true
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== reverseArr[i]) {
+      target = false
+      break
     }
-    // console.log(arr,reverseArr);
-    return target
-};
+  }
+  // console.log(arr,reverseArr);
+  return target
+}
 console.time('time')
 // console.log(isPalindrome('A man, a plan, a canal: Panama'));
 // console.log(isPalindrome('race a car'));

@@ -26,22 +26,22 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function (nums, k) {
-    let l = nums.length, map = {}
-    for (let i = 0; i < l; i++) {
-        const item = nums[i]
-        if (map[item]) {
-            if (Math.abs(map[item][map[item].length - 1] - i) <= k) {
-                return true
-            }
-            map[item].push(i)
-        } else {
-            map[item] = [i]
-        }
+  let l = nums.length; let map = {}
+  for (let i = 0; i < l; i++) {
+    const item = nums[i]
+    if (map[item]) {
+      if (Math.abs(map[item][map[item].length - 1] - i) <= k) {
+        return true
+      }
+      map[item].push(i)
+    } else {
+      map[item] = [i]
     }
-    return false
-};
+  }
+  return false
+}
 
 // console.log(containsNearbyDuplicate([1, 2, 3, 1, 2, 3], 2));
-console.log(containsNearbyDuplicate([1, 2, 3, 1], 3));
+console.log(containsNearbyDuplicate([1, 2, 3, 1], 3))
 // console.log(containsNearbyDuplicate([1, 0, 1, 1], 1));
 // console.log(containsNearbyDuplicate([1], 1));

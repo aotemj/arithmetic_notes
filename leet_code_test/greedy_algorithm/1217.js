@@ -34,19 +34,19 @@
  * @return {number}
  */
 var minCostToMoveChips = function (position) {
-    const l = position.length
-    let oddCount = 0, evenCount = 0
-    for (let i = 0; i < l; i++) {
-        const item = position[i]
-        if (item % 2 === 0) {
-            evenCount++
-        } else {
-            oddCount++
-        }
+  const l = position.length
+  let oddCount = 0; let evenCount = 0
+  for (let i = 0; i < l; i++) {
+    const item = position[i]
+    if (item % 2 === 0) {
+      evenCount++
+    } else {
+      oddCount++
     }
-    return oddCount > evenCount ? evenCount : oddCount
-};
+  }
+  return oddCount > evenCount ? evenCount : oddCount
+}
 
 // const chips = [1, 2, 3]
 const chips = [2, 2, 2, 3, 3]
-console.log(minCostToMoveChips(chips));
+console.log(minCostToMoveChips(chips))

@@ -30,20 +30,20 @@
  * @return {number}
  */
 var findKthPositive = function (arr, k) {
-  const l = arr.length, max = arr[l - 1];
-  let losingArr = [], fullArr = []
+  const l = arr.length; const max = arr[l - 1]
+  let losingArr = []; let fullArr = []
   for (let i = 1; i <= max; i++) {
     fullArr.push(i)
   }
   const fl = fullArr.length
-  let left1 = 0, left2 = 0
+  let left1 = 0; let left2 = 0
   while (left1 < l && left2 < fl) {
     if (arr[left1] === fullArr[left2]) {
-      left1++;
-      left2++;
+      left1++
+      left2++
     } else {
       losingArr.push(fullArr[left2])
-      left2++;
+      left2++
     }
   }
   let ll = losingArr.length
@@ -52,12 +52,12 @@ var findKthPositive = function (arr, k) {
       losingArr.push(arr[l - 1] + 1 + i)
     }
   }
-  return losingArr[k - 1];
-};
-let arr = [2, 3, 4, 7, 11], k = 5
+  return losingArr[k - 1]
+}
+let arr = [2, 3, 4, 7, 11]; let k = 5
 // let arr = [1, 2, 3, 4], k = 2
 // let arr = [2], k = 1
 // let arr = [5, 6, 7, 8, 9], k = 9
 // let arr = [1, 13, 18], k = 17
-console.log(findKthPositive(arr, k));
+console.log(findKthPositive(arr, k))
 

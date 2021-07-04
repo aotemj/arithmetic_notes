@@ -24,35 +24,35 @@
  * @return {string[]}
  */
 let map = {
-    1: ["()"]
+  1: ['()']
 }
 var generateParenthesis = function (n) {
-    if (n === 1) return ["()"]
-    if (map[n]) return map[n]
+  if (n === 1) return ['()']
+  if (map[n]) return map[n]
 
-    let res = [], preRes = generateParenthesis(n - 1), pl = preRes.length
-    for (let i = 0; i < pl; i++) {
-        const item = preRes[i]
-        res.push(`(${item})`)
-        res.push(`()${item}`)
-        res.push(`${item}()`)
-        const l = item.length
-        for (let j = 0; j < l - 1; j++) {
-            const subStr = item.substring(j, j + 2)
-            if (subStr === '()') {
-                // 在括号右边增加
-                res.push(`${item.substring(0, j + 2)}()${item.substring(j + 2)}`)
-                // 在括号左边增加
-                res.push(`${item.substring(0, j - 1)}()${item.substring(j - 1)}`)
-                // 在括号内部添加括号
-                res.push(`${item.substring(0, j + 1)}()${item.substring(j + 1)}`)
-            }
-        }
+  let res = []; let preRes = generateParenthesis(n - 1); let pl = preRes.length
+  for (let i = 0; i < pl; i++) {
+    const item = preRes[i]
+    res.push(`(${item})`)
+    res.push(`()${item}`)
+    res.push(`${item}()`)
+    const l = item.length
+    for (let j = 0; j < l - 1; j++) {
+      const subStr = item.substring(j, j + 2)
+      if (subStr === '()') {
+        // 在括号右边增加
+        res.push(`${item.substring(0, j + 2)}()${item.substring(j + 2)}`)
+        // 在括号左边增加
+        res.push(`${item.substring(0, j - 1)}()${item.substring(j - 1)}`)
+        // 在括号内部添加括号
+        res.push(`${item.substring(0, j + 1)}()${item.substring(j + 1)}`)
+      }
     }
-    res = [...new Set(res)]
-    map[n] = res
-    return res
-};
+  }
+  res = [...new Set(res)]
+  map[n] = res
+  return res
+}
 
-const n = 5;
-console.log(generateParenthesis(n));
+const n = 5
+console.log(generateParenthesis(n))

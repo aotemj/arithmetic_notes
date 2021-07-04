@@ -4,8 +4,6 @@
 
  注意：本题相对原题稍作改动
 
-
-
  示例 1：
 
  输入： [1,2,3,1]
@@ -28,16 +26,16 @@
  * @return {number}
  */
 var massage = function (nums) {
-    let length = nums.length
-    if (!length) return 0
-    let resArr = [nums[0], Math.max(nums[0], nums[1])]
-    for (let i = 2; i < length; i++) {
-        const current = nums[i]
-        resArr[i] = Math.max(resArr[i - 1], resArr[i - 2] + current)
-    }
-    return resArr[length - 1]
-};
-console.log(massage([2, 7, 9, 3, 1]));
-console.log(massage([2, 1, 4, 5, 3, 1, 1, 3]));
-console.log(massage([2, 1, 4]));
-console.log(massage([2,4]));
+  let length = nums.length
+  if (!length) return 0
+  let resArr = [nums[0], Math.max(nums[0], nums[1])]
+  for (let i = 2; i < length; i++) {
+    const current = nums[i]
+    resArr[i] = Math.max(resArr[i - 1], resArr[i - 2] + current)
+  }
+  return resArr[length - 1]
+}
+console.log(massage([2, 7, 9, 3, 1]))
+console.log(massage([2, 1, 4, 5, 3, 1, 1, 3]))
+console.log(massage([2, 1, 4]))
+console.log(massage([2, 4]))

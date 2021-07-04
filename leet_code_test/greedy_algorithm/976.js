@@ -33,29 +33,29 @@
  * @return {number}
  */
 var largestPerimeter = function (nums) {
-    const l = nums.length;
-    nums.sort((a, b) => b - a)
-    let perimeter = 0
-    for (let i = 0; i < l - 2; i++) {
-        if (isConstituteTriangle(...(nums.slice(i, i + 3)))) {
-            perimeter = nums[i] + nums[i + 1] + nums[i + 2]
-            break
-        }
+  const l = nums.length
+  nums.sort((a, b) => b - a)
+  let perimeter = 0
+  for (let i = 0; i < l - 2; i++) {
+    if (isConstituteTriangle(...(nums.slice(i, i + 3)))) {
+      perimeter = nums[i] + nums[i + 1] + nums[i + 2]
+      break
     }
+  }
 
-    return perimeter
+  return perimeter
 
-    function isConstituteTriangle(a, b, c) {
-        if (a + b > c && b + c > a && c + a > b) {
-            return true
-        } else {
-            return false
-        }
+  function isConstituteTriangle (a, b, c) {
+    if (a + b > c && b + c > a && c + a > b) {
+      return true
+    } else {
+      return false
     }
-};
+  }
+}
 
 // let nums = [2, 1, 2]
 // let nums = [1, 2, 1]
 // let nums = [3, 2, 3, 4]
 let nums = [3, 6, 2, 3]
-console.log(largestPerimeter(nums));
+console.log(largestPerimeter(nums))

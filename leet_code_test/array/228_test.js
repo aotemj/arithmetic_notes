@@ -7,8 +7,8 @@
 
  列表中的每个区间范围 [a,b] 应该按如下格式输出：
 
- "a->b" ，如果 a != b
- "a" ，如果 a == b
+ "a->b" ，如果 a !== b
+ "a" ，如果 a === b
 
  示例 1：
 
@@ -48,24 +48,24 @@
  * @return {string[]}
  */
 var summaryRanges = function (nums) {
-    let l = nums.length, res = [], start = nums[0], end = start
+  let l = nums.length; let res = []; let start = nums[0]; let end = start
 
-    for (let i = 0; i < l; i++) {
-        let current = nums[i], next = nums[i + 1]
-        if (next - current === 1) {
-            end += 1
-        } else {
-            if (start === end) {
-                res.push(`${start}`)
-            } else {
-                res.push(`${start}->${end}`)
-            }
-            start = next
-            end = next
-        }
+  for (let i = 0; i < l; i++) {
+    let current = nums[i]; let next = nums[i + 1]
+    if (next - current === 1) {
+      end += 1
+    } else {
+      if (start === end) {
+        res.push(`${start}`)
+      } else {
+        res.push(`${start}->${end}`)
+      }
+      start = next
+      end = next
     }
-    return res
-};
+  }
+  return res
+}
 
-console.log(summaryRanges([0, 2, 3, 4, 6, 8, 9]));
-console.log(summaryRanges([0,1,2,4,5,7]));
+console.log(summaryRanges([0, 2, 3, 4, 6, 8, 9]))
+console.log(summaryRanges([0, 1, 2, 4, 5, 7]))

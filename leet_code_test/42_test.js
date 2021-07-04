@@ -9,7 +9,6 @@
  输出: 6
  解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
 
-
  提示：
 
  1 <= arr.length <= 10^5
@@ -21,20 +20,20 @@
  * @return {number}
  */
 var maxSubArray = function (nums) {
-    let sum = 0
-    let res = nums[0]
-    let length = nums.length
-    for (let i = 0; i < length; i++) {
-        const item = nums[i]
-        if (sum > 0) {
-            sum += item
-        } else {
-            sum = item
-        }
-        res = Math.max(res, sum)
+  let sum = 0
+  let res = nums[0]
+  let length = nums.length
+  for (let i = 0; i < length; i++) {
+    const item = nums[i]
+    if (sum > 0) {
+      sum += item
+    } else {
+      sum = item
     }
-    return res
-};
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
-console.log(maxSubArray([1]));
-console.log(maxSubArray([-1]));
+    res = Math.max(res, sum)
+  }
+  return res
+}
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+console.log(maxSubArray([1]))
+console.log(maxSubArray([-1]))

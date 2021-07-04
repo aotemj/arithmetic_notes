@@ -21,7 +21,7 @@
  提示：
 
  2 <= nums.length <= 100
- nums.length % 2 == 0
+ nums.length % 2 === 0
  1 <= nums[i] <= 100
  */
 
@@ -41,9 +41,8 @@ var decompressRLElist = function (nums) {
     }
   }
   return resArr
-};
-
+}
 
 // const nums = [1, 2, 3, 4]
-const nums = [1,1,2,3]
-console.log(decompressRLElist(nums));
+const nums = [1, 1, 2, 3]
+console.log(decompressRLElist(nums))

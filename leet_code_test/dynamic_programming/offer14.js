@@ -24,19 +24,19 @@
  * @return {number}
  */
 var cuttingRope = function (n) {
-    let max = 0
-    for (let i = 1; i < n; i++) {
-        const remainder = n % i, // 余数
-            quotient = parseInt(n / i) // 商
-        let res = 0
-        if (quotient === 1) {
-            res = i * remainder
-        } else {
-            res = Math.max(Math.pow(i, quotient - 1) * (i + remainder), Math.pow(i, quotient) * remainder)
-        }
-        max = Math.max(max, res)
+  let max = 0
+  for (let i = 1; i < n; i++) {
+    const remainder = n % i // 余数
+    const quotient = parseInt(n / i) // 商
+    let res = 0
+    if (quotient === 1) {
+      res = i * remainder
+    } else {
+      res = Math.max(Math.pow(i, quotient - 1) * (i + remainder), Math.pow(i, quotient) * remainder)
     }
-    return max
-};
+    max = Math.max(max, res)
+  }
+  return max
+}
 
-console.log(cuttingRope(8));
+console.log(cuttingRope(8))

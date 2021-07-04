@@ -43,58 +43,59 @@
  * @param {string} s
  * @return {number}
  */
+// eslint-disable-next-line no-unused-vars
 var balancedStringSplit = function (s) {
-    const l = s.length;
-    let start = 0, end = 2, RCount = 0, LCount = 0, maxCount = 0;
-    while (end <= l) {
-        const subStr = s.substring(start, end), sl = subStr.length
-        let index = 0
-        while (index < sl) {
-            const item = subStr[index]
-            if (item === "R") {
-                RCount++
-            } else {
-                LCount++
-            }
-            index += 1
-        }
-        if (RCount === LCount) {
-            start += sl
-            end += 2
-            maxCount += 1
-            RCount = 0
-            LCount = 0
-        } else {
-            end += 2
-            RCount = 0
-            LCount = 0
-        }
+  const l = s.length
+  let start = 0; let end = 2; let RCount = 0; let LCount = 0; let maxCount = 0
+  while (end <= l) {
+    const subStr = s.substring(start, end); const sl = subStr.length
+    let index = 0
+    while (index < sl) {
+      const item = subStr[index]
+      if (item === 'R') {
+        RCount++
+      } else {
+        LCount++
+      }
+      index += 1
     }
-    return maxCount
-};
+    if (RCount === LCount) {
+      start += sl
+      end += 2
+      maxCount += 1
+      RCount = 0
+      LCount = 0
+    } else {
+      end += 2
+      RCount = 0
+      LCount = 0
+    }
+  }
+  return maxCount
+}
 
 /**
  * 方法2： 堆栈法
  * @param s
  */
 var balancedStringSplit2 = function (s) {
-    const l = s.length
-    let count = 0, temp = 0;
-    for (let i = 0; i < l; i++) {
-        const item = s[i]
-        if (item === "R") {
-            temp -= 1
-        } else {
-            temp += 1
-        }
-        if (!temp) {
-            count += 1
-        }
+  const l = s.length
+  let count = 0; let temp = 0
+  for (let i = 0; i < l; i++) {
+    const item = s[i]
+    if (item === 'R') {
+      temp -= 1
+    } else {
+      temp += 1
     }
-    return count
+    if (!temp) {
+      count += 1
+    }
+  }
+  return count
 }
 
-const s = "RLRRLLRLRL"
+const s = 'RLRRLLRLRL'
 // const s = "LLLLRRRR"
 // const s = "RLRRRLLRLL"
-console.log(balancedStringSplit2(s));
+console.log(balancedStringSplit2(s))

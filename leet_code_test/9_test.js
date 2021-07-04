@@ -5,7 +5,7 @@
 
  输入: 121
  输出: true
- 示例 2:
+ 示例 2:
 
  输入: -121
  输出: false
@@ -20,21 +20,20 @@
  你能不将整数转为字符串来解决这个问题吗？
  */
 
-
 /**
  * @param {number} x
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-    if (x < 0) return false
-    let target = 0;
-    let originX = x;
-    while (originX != 0) {
-        target = target * 10 + originX % 10;
-        originX = parseInt(originX / 10)
-    }
-    return x === target
-};
+  if (x < 0) return false
+  let target = 0
+  let originX = x
+  while (originX !== 0) {
+    target = target * 10 + originX % 10
+    originX = parseInt(originX / 10)
+  }
+  return x === target
+}
 console.time('time')
-console.log(isPalindrome(-121));
+console.log(isPalindrome(-121))
 console.timeEnd('time')

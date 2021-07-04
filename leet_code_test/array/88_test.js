@@ -15,8 +15,8 @@
 
  提示：
 
- nums1.length == m + n
- nums2.length == n
+ nums1.length === m + n
+ nums2.length === n
  0 <= m, n <= 200
  1 <= m + n <= 200
  -109 <= nums1[i], nums2[i] <= 109
@@ -30,19 +30,19 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-    const newNums = nums1.concat(nums2).sort((a, b) => a - b)
-    let l = m + n, newArr = []
-    for (let i = 0; i < l; i++) {
-        const item = newNums[i]
-        if (item) {
-            newArr.push(item)
-        } else {
-            l += 1
-        }
+  const newNums = nums1.concat(nums2).sort((a, b) => a - b)
+  let l = m + n; let newArr = []
+  for (let i = 0; i < l; i++) {
+    const item = newNums[i]
+    if (item) {
+      newArr.push(item)
+    } else {
+      l += 1
     }
-    return newArr
-};
+  }
+  return newArr
+}
 
-const nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3
+const nums1 = [1, 2, 3, 0, 0, 0]; const m = 3; const nums2 = [2, 5, 6]; const n = 3
 // const nums1 = [1], m = 1, nums2 = [], n = 0
-console.log(merge(nums1, m, nums2, n));
+console.log(merge(nums1, m, nums2, n))

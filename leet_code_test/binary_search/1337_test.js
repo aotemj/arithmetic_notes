@@ -34,8 +34,6 @@
 
  从最弱到最强对这些行排序后得到 [2,0,3,1,4]
 
-
-
  示例 2：
 
  输入：mat =
@@ -53,11 +51,10 @@
  行 3 -> 1
  从最弱到最强对这些行排序后得到 [0,2,3,1]
 
-
  提示：
 
- m == mat.length
- n == mat[i].length
+ m === mat.length
+ n === mat[i].length
  2 <= n, m <= 100
  1 <= k <= m
  matrix[i][j] 不是 0 就是 1
@@ -69,17 +66,17 @@
  * @return {number[]}
  */
 var kWeakestRows = function (mat, k) {
-    let ml = mat.length
-    let transmuteArr = []
-    for (let i = 0; i < ml; i++) {
-        let item = mat[i]
-        let index = item.indexOf(0)
-        let count = index === -1 ? item.length : index
-        transmuteArr.push([i, count])
-    }
-    transmuteArr.sort((a, b) => a[1] - b[1])
-    return transmuteArr.slice(0, k).map(item => item[0])
-};
+  let ml = mat.length
+  let transmuteArr = []
+  for (let i = 0; i < ml; i++) {
+    let item = mat[i]
+    let index = item.indexOf(0)
+    let count = index === -1 ? item.length : index
+    transmuteArr.push([i, count])
+  }
+  transmuteArr.sort((a, b) => a[1] - b[1])
+  return transmuteArr.slice(0, k).map(item => item[0])
+}
 
 // let mat = [[1, 1, 0, 0, 0],
 //         [1, 1, 1, 1, 0],
@@ -89,27 +86,9 @@ var kWeakestRows = function (mat, k) {
 //     k = 3
 let mat =
         [[1, 0, 0, 0],
-            [1, 1, 1, 1],
-            [1, 0, 0, 0],
-            [1, 0, 0, 0]],
-    k = 2
-console.log(kWeakestRows(mat, k));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          [1, 1, 1, 1],
+          [1, 0, 0, 0],
+          [1, 0, 0, 0]]
+let k = 2
+console.log(kWeakestRows(mat, k))
 

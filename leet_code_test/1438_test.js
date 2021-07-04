@@ -30,7 +30,6 @@
  输入：nums = [4,2,2,2,4,4,2,2], limit = 0
  输出：3
 
-
  提示：
 
  1 <= nums.length <= 10^5
@@ -44,52 +43,36 @@
  * @return {number}
  */
 var longestSubarray = function (nums, limit) {
-  const queMax = [];
-  const queMin = [];
-  const n = nums.length;
-  let left = 0, right = 0;
-  let ret = 0;
+  const queMax = []
+  const queMin = []
+  const n = nums.length
+  let left = 0; let right = 0
+  let ret = 0
   while (right < n) {
     while (queMax.length && queMax[queMax.length - 1] < nums[right]) {
-      queMax.pop();
+      queMax.pop()
     }
     while (queMin.length && queMin[queMin.length - 1] > nums[right]) {
-      queMin.pop();
+      queMin.pop()
     }
-    queMax.push(nums[right]);
-    queMin.push(nums[right]);
+    queMax.push(nums[right])
+    queMin.push(nums[right])
     while (queMax.length && queMin.length && queMax[0] - queMin[0] > limit) {
       if (nums[left] === queMin[0]) {
-        queMin.shift();
+        queMin.shift()
       }
       if (nums[left] === queMax[0]) {
-        queMax.shift();
+        queMax.shift()
       }
-      left++;
+      left++
     }
-    ret = Math.max(ret, right - left + 1);
-    right++;
+    ret = Math.max(ret, right - left + 1)
+    right++
   }
-  return ret;
-};
+  return ret
+}
 
-console.log(longestSubarray([10, 1, 2, 4, 7, 2], 5));
-console.log(longestSubarray([8, 2, 4, 7], 4));
-console.log(longestSubarray([4, 2, 2, 2, 4, 4, 2, 2], 0));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(longestSubarray([10, 1, 2, 4, 7, 2], 5))
+console.log(longestSubarray([8, 2, 4, 7], 4))
+console.log(longestSubarray([4, 2, 2, 2, 4, 4, 2, 2], 0))
 

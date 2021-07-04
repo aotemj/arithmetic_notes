@@ -20,7 +20,6 @@
  输出：13
  解释：选择索引 (1, 4) ，然后 A 变为 [2,3,-1,5,4]。
 
-
  提示：
 
  1 <= A.length <= 10000
@@ -34,25 +33,25 @@
  * @return {number}
  */
 var largestSumAfterKNegations = function (nums, k) {
+  nums.sort((a, b) => {
+    return a - b
+  })
+
+  while (k > 0) {
+    nums[0] = nums[0] * -1
     nums.sort((a, b) => {
-        return a - b
+      return a - b
     })
+    k -= 1
+  }
 
-    while (k > 0) {
-        nums[0] = nums[0] * -1
-        nums.sort((a, b) => {
-            return a - b
-        })
-        k -= 1
-    }
-
-    return nums.reduce((prev, currnet) => prev + currnet)
-};
+  return nums.reduce((prev, currnet) => prev + currnet)
+}
 
 // const A = [2, -3, -1, 5, -4], K = 2
-const A = [3, -1, 0, 2], K = 3
+const A = [3, -1, 0, 2]; const K = 3
 // const A = [4, 2, 3], K = 1
 // const A = [5, 6, 9, -3, 3], K = 2
 // const A = [5, 6, 9, -6, 3, 1], K = 4
 
-console.log(largestSumAfterKNegations(A, K));
+console.log(largestSumAfterKNegations(A, K))

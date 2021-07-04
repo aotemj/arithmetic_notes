@@ -5,7 +5,6 @@
 
  丑数 就是只包含质因数 2、3 和/或 5 的正整数。
 
-
  示例 1：
 
  输入：n = 6
@@ -27,7 +26,6 @@
  输出：true
  解释：1 通常被视为丑数。
 
-
  提示：
 
  -231 <= n <= 231 - 1
@@ -39,21 +37,21 @@
  * @return {boolean}
  */
 var isUgly = function (n) {
-    if (n === 1) return true
-    if (n <= 0) return false
-    while (n % 2 === 0) {
-        n /= 2
-    }
-    while (n % 3 === 0) {
-        n /= 3
-    }
-    while (n % 5 === 0) {
-        n /= 5
-    }
-    return n === 1
-};
+  if (n === 1) return true
+  if (n <= 0) return false
+  while (n % 2 === 0) {
+    n /= 2
+  }
+  while (n % 3 === 0) {
+    n /= 3
+  }
+  while (n % 5 === 0) {
+    n /= 5
+  }
+  return n === 1
+}
 
 const n = 6
 // const n = 8
 // const n = 14
-console.log(isUgly(n));
+console.log(isUgly(n))

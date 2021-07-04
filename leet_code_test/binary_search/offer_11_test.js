@@ -15,14 +15,13 @@
 
  */
 
-
 /**
  * @param {number[]} numbers
  * @return {number}
  */
 var minArray = function (numbers) {
-    return numbers.sort((a, b) => a - b)[0]
-};
+  return numbers.sort((a, b) => a - b)[0]
+}
 
-console.log(minArray([3, 4, 5, 1, 2]));
-console.log(minArray([2, 2, 2, 0, 1]));
+console.log(minArray([3, 4, 5, 1, 2]))
+console.log(minArray([2, 2, 2, 0, 1]))

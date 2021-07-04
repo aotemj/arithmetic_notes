@@ -7,7 +7,6 @@
  arr[i] > arr[i+1] > ... > arr[arr.length - 1]
  给你由整数组成的山脉数组 arr ，返回任何满足 arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1] 的下标 i 。
 
-
  示例 1：
 
  输入：arr = [0,1,0]
@@ -29,13 +28,11 @@
  输入：arr = [24,69,100,99,79,78,67,36,26,19]
  输出：2
 
-
  提示：
 
  3 <= arr.length <= 104
  0 <= arr[i] <= 106
  题目数据保证 arr 是一个山脉数组
-
 
  进阶：很容易想到时间复杂度 O(n) 的解决方案，你可以设计一个 O(log(n)) 的解决方案吗？
  */
@@ -53,22 +50,22 @@
  * @param arr
  */
 var peakIndexInMountainArray = function (arr) {
-    let left = 1, right = arr.length - 2, mid = 0
-    while (left <= right) {
-        while (arr[left] < arr[left + 1]) {
-            left += 1
-        }
-        while (arr[right - 1] > arr[right]) {
-            right -= 1
-        }
-        
-        mid = parseInt((left + right) / 2)
-        if ((left === mid && left === right) || (arr[mid] > arr[left] && arr[mid] > arr[right])) {
-            return mid
-        }
+  let left = 1; let right = arr.length - 2; let mid = 0
+  while (left <= right) {
+    while (arr[left] < arr[left + 1]) {
+      left += 1
     }
+    while (arr[right - 1] > arr[right]) {
+      right -= 1
+    }
+
+    mid = parseInt((left + right) / 2)
+    if ((left === mid && left === right) || (arr[mid] > arr[left] && arr[mid] > arr[right])) {
+      return mid
+    }
+  }
 }
 
 // console.log(peakIndexInMountainArray([24, 69, 100, 99, 79, 78, 67, 36, 26, 19]));
 // console.log(peakIndexInMountainArray([3, 4, 5, 1]));
-console.log(peakIndexInMountainArray([0, 10, 5, 2]));
+console.log(peakIndexInMountainArray([0, 10, 5, 2]))

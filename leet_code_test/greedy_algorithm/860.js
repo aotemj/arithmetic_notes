@@ -37,7 +37,6 @@
  对于最后一位顾客，我们无法退回 15 美元，因为我们现在只有两张 10 美元的钞票。
  由于不是每位顾客都得到了正确的找零，所以答案是 false。
 
-
  提示：
 
  0 <= bills.length <= 10000
@@ -50,41 +49,41 @@
  * @return {boolean}
  */
 var lemonadeChange = function (bills) {
-    let count = {5: 0, 10: 0, 20: 0, sum: 0}, flag = true
-    const bl = bills.length
-    for (let i = 0; i < bl; i++) {
-        if (bills[i] === 5) {
-            count[5] += 1
-            count.sum += 5
-        } else if (bills[i] === 10 && count[5] >= 1) {
-            count[5] -= 1
-            count[10] += 1
-            count.sum += 5
-        } else if (bills[i] === 20 && count.sum >= 15) {
-            if (count[5] >= 1 && count[10] >= 1) {
-                count[5] -= 1
-                count[10] -= 1
-                count[20] += 1
-                count.sum += 5
-            } else if (count[5] >= 3) {
-                count[5] -= 3
-                count[20] += 1
-                count.sum += 5
-            } else {
-                flag = false
-                break
-            }
-        } else {
-            flag = false
-            break
-        }
+  let count = {5: 0, 10: 0, 20: 0, sum: 0}; let flag = true
+  const bl = bills.length
+  for (let i = 0; i < bl; i++) {
+    if (bills[i] === 5) {
+      count[5] += 1
+      count.sum += 5
+    } else if (bills[i] === 10 && count[5] >= 1) {
+      count[5] -= 1
+      count[10] += 1
+      count.sum += 5
+    } else if (bills[i] === 20 && count.sum >= 15) {
+      if (count[5] >= 1 && count[10] >= 1) {
+        count[5] -= 1
+        count[10] -= 1
+        count[20] += 1
+        count.sum += 5
+      } else if (count[5] >= 3) {
+        count[5] -= 3
+        count[20] += 1
+        count.sum += 5
+      } else {
+        flag = false
+        break
+      }
+    } else {
+      flag = false
+      break
     }
-    return flag
-};
+  }
+  return flag
+}
 
 // const bills = [5, 5, 5, 10, 20]
 const bills = [5, 5, 10]
 // const bills = [10, 10]
 // const bills = [5, 5, 10, 10, 20]
 // const bills = [5, 5, 5, 10, 5, 5, 10, 20, 20, 20]
-console.log(lemonadeChange(bills));
+console.log(lemonadeChange(bills))

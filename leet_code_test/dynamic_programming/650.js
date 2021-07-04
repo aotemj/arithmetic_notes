@@ -20,7 +20,6 @@
  n 的取值范围是 [1, 1000] 。
  */
 
-
 /**
  * 最后一步的结果
  * 思路：
@@ -33,34 +32,34 @@
 
 let stepMap = {}
 var minSteps = function (n) {
-    if (n === 1) return 0
-    if (stepMap[n]) return stepMap[n]
-    let factors = [], counts = []
-    for (let i = 1; i < Math.ceil(n / 2); i++) {
-        if (n % i === 0) {
-            factors.push([i, n / i])
-        }
+  if (n === 1) return 0
+  if (stepMap[n]) return stepMap[n]
+  let factors = []
+  for (let i = 1; i < Math.ceil(n / 2); i++) {
+    if (n % i === 0) {
+      factors.push([i, n / i])
     }
-    // 质数
-    const l = factors.length
-    if (l === 1) {
-        stepMap[n] = n
-        return n;
-    } else {
-        let minCount = n
-        for (let i = 1; i < l; i++) {
-            const [a, b] = factors[i]
-            // 由规律可知，n 的每一对因数（a,b）都有如下规律：
-            // n 的最小操作次数 = a的最小操作次数 + b 或
-            // n 的最小操作次数 = b的最小操作次数 + a
-            minCount = Math.min(minSteps(a) + b, minSteps(b) + a, minCount)
-        }
-        stepMap[n] = minCount
-        return minCount
+  }
+  // 质数
+  const l = factors.length
+  if (l === 1) {
+    stepMap[n] = n
+    return n
+  } else {
+    let minCount = n
+    for (let i = 1; i < l; i++) {
+      const [a, b] = factors[i]
+      // 由规律可知，n 的每一对因数（a,b）都有如下规律：
+      // n 的最小操作次数 = a的最小操作次数 + b 或
+      // n 的最小操作次数 = b的最小操作次数 + a
+      minCount = Math.min(minSteps(a) + b, minSteps(b) + a, minCount)
     }
-};
+    stepMap[n] = minCount
+    return minCount
+  }
+}
 
-console.log(minSteps(1));
+console.log(minSteps(1))
 
 // 1. copy ALl  A
 // 2. Paste     AA
@@ -73,5 +72,4 @@ console.log(minSteps(1));
 // 3. COPYALL   AA
 // 4. paste     AAAA
 // 5. paste     AAAAAA
-
 

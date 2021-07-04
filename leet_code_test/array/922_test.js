@@ -6,19 +6,16 @@
 
  你可以返回任何满足上述条件的数组作为答案。
 
-
-
  示例：
 
  输入：[4,2,5,7]
  输出：[4,5,2,7]
  解释：[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。
 
-
  提示：
 
  2 <= A.length <= 20000
- A.length % 2 == 0
+ A.length % 2 === 0
  0 <= A[i] <= 1000
  */
 
@@ -29,8 +26,8 @@
  * @return {number[]}
  */
 var sortArrayByParityII = function (nums) {
-  const l = nums.length;
-  let oddArr = [], evenArr = [], needChangeIndexs = [];
+  const l = nums.length
+  let oddArr = []; let evenArr = []; let needChangeIndexs = []
   for (let i = 0; i < l; i++) {
     if ((nums[i] + i) % 2 !== 0) {
       const item = nums[i]
@@ -53,7 +50,7 @@ var sortArrayByParityII = function (nums) {
     }
   }
   return nums
-};
+}
 
-console.log(sortArrayByParityII([4, 2, 5, 7]));
+console.log(sortArrayByParityII([4, 2, 5, 7]))
 // console.log(sortArrayByParityII([3, 1, 4, 2]));

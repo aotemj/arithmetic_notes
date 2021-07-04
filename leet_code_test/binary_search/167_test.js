@@ -20,7 +20,6 @@
  输入：numbers = [-1,0], target = -1
  输出：[1,2]
 
-
  提示：
 
  2 <= numbers.length <= 3 * 104
@@ -56,21 +55,20 @@
  * @returns {number[]}
  */
 var twoSum = function (numbers, target) {
-    let l = numbers.length
-    for (let i = 0; i < l; i++) {
-        for (let j = i + 1; j < l; j++) {
-            let sum = numbers[i] + numbers[j]
-            if (sum === target) {
-                return [i + 1, j + 1]
-            }
-        }
+  let l = numbers.length
+  for (let i = 0; i < l; i++) {
+    for (let j = i + 1; j < l; j++) {
+      let sum = numbers[i] + numbers[j]
+      if (sum === target) {
+        return [i + 1, j + 1]
+      }
     }
-};
+  }
+}
 
-
-console.log(twoSum([2, 7, 11, 15], 9));
-console.log(twoSum([2, 3, 4], 6));
-console.log(twoSum([-1, 5, 7, 9, 10, 13], 6));
-console.log(twoSum([-1, 0], -1));
-console.log(twoSum([-1000, -1, 0, 1], 1));
+console.log(twoSum([2, 7, 11, 15], 9))
+console.log(twoSum([2, 3, 4], 6))
+console.log(twoSum([-1, 5, 7, 9, 10, 13], 6))
+console.log(twoSum([-1, 0], -1))
+console.log(twoSum([-1000, -1, 0, 1], 1))
 

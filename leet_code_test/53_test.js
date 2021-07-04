@@ -16,20 +16,20 @@
  * @return {number}
  */
 var maxSubArray = function (nums) {
-    let length = nums.length
-    let sum = 0
-    let res = nums[0]
-    for (let i = 0; i < length; i++) {
-        const item = nums[i]
-        if (sum > 0) {
-            sum += item
-        } else {
-            sum = item
-        }
-        res = Math.max(res, sum)
+  let length = nums.length
+  let sum = 0
+  let res = nums[0]
+  for (let i = 0; i < length; i++) {
+    const item = nums[i]
+    if (sum > 0) {
+      sum += item
+    } else {
+      sum = item
     }
-    return res
-};
+    res = Math.max(res, sum)
+  }
+  return res
+}
 /**
  *思路
  这道题用动态规划的思路并不难解决，比较难的是后文提出的用分治法求解，但由于其不是最优解法，所以先不列出来
@@ -40,7 +40,7 @@ var maxSubArray = function (nums) {
  时间复杂度：O(n)O(n)
  */
 
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
 // console.log(maxSubArray([1]));
 // console.log(maxSubArray([]));
 // console.log(maxSubArray([-2, -1]));

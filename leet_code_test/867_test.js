@@ -13,11 +13,10 @@
  Input: matrix = [[1,2,3],[4,5,6]]
  Output: [[1,4],[2,5],[3,6]]
 
-
  Constraints:
 
- m == matrix.length
- n == matrix[i].length
+ m === matrix.length
+ n === matrix[i].length
  1 <= m, n <= 1000
  1 <= m * n <= 105
  -109 <= matrix[i][j] <= 109
@@ -43,9 +42,8 @@
 //     return newArr
 // };
 
-
 // method 2
-    // matrix[i,j] = matrix[j,i]
+// matrix[i,j] = matrix[j,i]
 // var transpose = function (matrix) {
 //         let newArr = []
 //         for (const i in matrix) {
@@ -62,11 +60,11 @@
 
 // method3
 var transpose = function (A) {
-        return A[0].map((_, idx) => {
-            return A.map(row => row[idx])
-        })
-    }
+  return A[0].map((_, idx) => {
+    return A.map(row => row[idx])
+  })
+}
 
-console.log(transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
-console.log(transpose([[1, 2, 3], [4, 5, 6]]));
+console.log(transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+console.log(transpose([[1, 2, 3], [4, 5, 6]]))
 

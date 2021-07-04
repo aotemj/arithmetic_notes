@@ -21,7 +21,6 @@
  解释：
  可以形成字符串 "hello" 和 "world"，所以答案是 5 + 5 = 10。
 
-
  提示：
 
  1 <= words.length <= 1000
@@ -37,7 +36,7 @@
  * @return {number}
  */
 var countCharacters = function (words, chars) {
-  let l = words.length, count = 0
+  let l = words.length; let count = 0
   for (let i = 0; i < l; i++) {
     const word = words[i]
     if (isRemember(word, chars)) {
@@ -45,11 +44,11 @@ var countCharacters = function (words, chars) {
     }
   }
 
-  function isRemember(word, chars) {
-    const l = word.length, cl = chars.length, wMap = {}, cMap = {}, maxL = l > cl ? l : cl
+  function isRemember (word, chars) {
+    const l = word.length; const cl = chars.length; const wMap = {}; const cMap = {}; const maxL = l > cl ? l : cl
     let i = 0
     while (i <= maxL) {
-      const wItem = word[i], cItem = chars[i]
+      const wItem = word[i]; const cItem = chars[i]
       if (wItem) {
         if (wMap[wItem]) {
           wMap[wItem] = wMap[wItem] + 1
@@ -65,13 +64,13 @@ var countCharacters = function (words, chars) {
           cMap[cItem] = 1
         }
       }
-      i++;
+      i++
     }
     let j = 0
     while (j < l) {
       const item = word[j]
       if (cMap[item] >= wMap[item]) {
-        j++;
+        j++
       } else {
         return false
       }
@@ -80,32 +79,32 @@ var countCharacters = function (words, chars) {
   }
 
   return count
-};
+}
 
 // let words = ["cat", "bt", "hat", "tree"], chars = "atach"
 // let words = ["hello", "world", "leetcode"], chars = "welldonehoneyr"
 let words = [
-    "dyiclysmffuhibgfvapygkorkqllqlvokosagyelotobicwcmebnpznjbirzrzsrtzjxhsfpiwyfhzyonmuabtlwin",
-    "ndqeyhhcquplmznwslewjzuyfgklssvkqxmqjpwhrshycmvrb",
-    "ulrrbpspyudncdlbkxkrqpivfftrggemkpyjl",
-    "boygirdlggnh",
-    "xmqohbyqwagkjzpyawsydmdaattthmuvjbzwpyopyafphx",
-    "nulvimegcsiwvhwuiyednoxpugfeimnnyeoczuzxgxbqjvegcxeqnjbwnbvowastqhojepisusvsidhqmszbrnynkyop",
-    "hiefuovybkpgzygprmndrkyspoiyapdwkxebgsmodhzpx",
-    "juldqdzeskpffaoqcyyxiqqowsalqumddcufhouhrskozhlmobiwzxnhdkidr",
-    "lnnvsdcrvzfmrvurucrzlfyigcycffpiuoo",
-    "oxgaskztzroxuntiwlfyufddl",
-    "tfspedteabxatkaypitjfkhkkigdwdkctqbczcugripkgcyfezpuklfqfcsccboarbfbjfrkxp",
-    "qnagrpfzlyrouolqquytwnwnsqnmuzphne",
-    "eeilfdaookieawrrbvtnqfzcricvhpiv",
-    "sisvsjzyrbdsjcwwygdnxcjhzhsxhpceqz",
-    "yhouqhjevqxtecomahbwoptzlkyvjexhzcbccusbjjdgcfzlkoqwiwue",
-    "hwxxighzvceaplsycajkhynkhzkwkouszwaiuzqcleyflqrxgjsvlegvupzqijbornbfwpefhxekgpuvgiyeudhncv",
-    "cpwcjwgbcquirnsazumgjjcltitmeyfaudbnbqhflvecjsupjmgwfbjo",
-    "teyygdmmyadppuopvqdodaczob",
-    "qaeowuwqsqffvibrtxnjnzvzuuonrkwpysyxvkijemmpdmtnqxwekbpfzs",
-    "qqxpxpmemkldghbmbyxpkwgkaykaerhmwwjonrhcsubchs"
-  ],
-  chars =
-    "usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp"
-console.log(countCharacters(words, chars));
+  'dyiclysmffuhibgfvapygkorkqllqlvokosagyelotobicwcmebnpznjbirzrzsrtzjxhsfpiwyfhzyonmuabtlwin',
+  'ndqeyhhcquplmznwslewjzuyfgklssvkqxmqjpwhrshycmvrb',
+  'ulrrbpspyudncdlbkxkrqpivfftrggemkpyjl',
+  'boygirdlggnh',
+  'xmqohbyqwagkjzpyawsydmdaattthmuvjbzwpyopyafphx',
+  'nulvimegcsiwvhwuiyednoxpugfeimnnyeoczuzxgxbqjvegcxeqnjbwnbvowastqhojepisusvsidhqmszbrnynkyop',
+  'hiefuovybkpgzygprmndrkyspoiyapdwkxebgsmodhzpx',
+  'juldqdzeskpffaoqcyyxiqqowsalqumddcufhouhrskozhlmobiwzxnhdkidr',
+  'lnnvsdcrvzfmrvurucrzlfyigcycffpiuoo',
+  'oxgaskztzroxuntiwlfyufddl',
+  'tfspedteabxatkaypitjfkhkkigdwdkctqbczcugripkgcyfezpuklfqfcsccboarbfbjfrkxp',
+  'qnagrpfzlyrouolqquytwnwnsqnmuzphne',
+  'eeilfdaookieawrrbvtnqfzcricvhpiv',
+  'sisvsjzyrbdsjcwwygdnxcjhzhsxhpceqz',
+  'yhouqhjevqxtecomahbwoptzlkyvjexhzcbccusbjjdgcfzlkoqwiwue',
+  'hwxxighzvceaplsycajkhynkhzkwkouszwaiuzqcleyflqrxgjsvlegvupzqijbornbfwpefhxekgpuvgiyeudhncv',
+  'cpwcjwgbcquirnsazumgjjcltitmeyfaudbnbqhflvecjsupjmgwfbjo',
+  'teyygdmmyadppuopvqdodaczob',
+  'qaeowuwqsqffvibrtxnjnzvzuuonrkwpysyxvkijemmpdmtnqxwekbpfzs',
+  'qqxpxpmemkldghbmbyxpkwgkaykaerhmwwjonrhcsubchs'
+]
+let chars =
+    'usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp'
+console.log(countCharacters(words, chars))

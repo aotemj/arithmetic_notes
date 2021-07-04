@@ -20,21 +20,21 @@
  */
 // 思路： 从1开始遍历，寻找 能被n 整除且最接近的值
 var integerBreak = function (n) {
-    let res = [1, 1, 2, 4, 6, 9, 12]
-    if (n > 7) {
-        for (let i = 7; i < n; i++) {
-            res[i] = res[i - 3] * 3
-        }
+  let res = [1, 1, 2, 4, 6, 9, 12]
+  if (n > 7) {
+    for (let i = 7; i < n; i++) {
+      res[i] = res[i - 3] * 3
     }
+  }
 
-    return res[n - 1]
-};
-console.log(integerBreak(10));
-console.log(integerBreak(9));
-console.log(integerBreak(8));
+  return res[n - 1]
+}
+console.log(integerBreak(10))
+console.log(integerBreak(9))
+console.log(integerBreak(8))
 // integerBreak(7)
 // integerBreak(6)
-console.log(integerBreak(3));
+console.log(integerBreak(3))
 // console.log(integerBreak(0));
 
 // console.log(Math.pow(2, 0));

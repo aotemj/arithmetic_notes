@@ -23,7 +23,6 @@
  输入：nums = [6]
  输出：[6]
 
-
  提示：
 
  1 <= nums.length <= 500
@@ -36,30 +35,30 @@
  * @return {number[]}
  */
 var minSubsequence = function (nums) {
-    const l = nums.length;
-    let sum = 0, sortArr = [...nums], subArr = [], subSum = 0
-    for (let i = 0; i < l; i++) {
-        sum += nums[i]
+  const l = nums.length
+  let sum = 0; let sortArr = [...nums]; let subArr = []; let subSum = 0
+  for (let i = 0; i < l; i++) {
+    sum += nums[i]
 
-        for (let j = 0; j < l - i - 1; j++) {
-            if (sortArr[j] < sortArr[j + 1]) {
-                const temp = sortArr[j]
-                sortArr[j] = sortArr[j + 1]
-                sortArr[j + 1] = temp
-            }
-        }
+    for (let j = 0; j < l - i - 1; j++) {
+      if (sortArr[j] < sortArr[j + 1]) {
+        const temp = sortArr[j]
+        sortArr[j] = sortArr[j + 1]
+        sortArr[j + 1] = temp
+      }
     }
-    for (let i = 0; i < l; i++) {
-        const item = sortArr[i]
-        subSum += item
-        subArr.push(item)
-        if (subSum > sum - subSum) {
-            break
-        }
+  }
+  for (let i = 0; i < l; i++) {
+    const item = sortArr[i]
+    subSum += item
+    subArr.push(item)
+    if (subSum > sum - subSum) {
+      break
     }
-    return subArr
-};
+  }
+  return subArr
+}
 
 // const nums = [4, 3, 10, 9, 8]
 const nums = [4, 4, 7, 6, 7]
-console.log(minSubsequence(nums));
+console.log(minSubsequence(nums))

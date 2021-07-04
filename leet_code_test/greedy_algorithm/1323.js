@@ -39,12 +39,12 @@
  * @return {number}
  */
 var maximum69Number = function (num) {
-    let str = `${num}`
-    str = str.replace('6', "9")
-    return str - 0
-};
+  let str = `${num}`
+  str = str.replace('6', '9')
+  return str - 0
+}
 
 // const num = 9669
 // const num = 9996
 const num = 9999
-console.log(maximum69Number(num));
+console.log(maximum69Number(num))

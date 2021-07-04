@@ -22,7 +22,6 @@
  输出：2
  解释：需要 2 步操作得到 "0101" 或 "1010" 。
 
-
  提示：
 
  1 <= s.length <= 104
@@ -36,7 +35,7 @@
  * @return {number}
  */
 var minOperations = function (s) {
-  let alternate1 = s.split(''), alternate2 = s.split(''), alternate1ChangeCount = 0, alternate2ChangeCount = 0, i = 0;
+  let alternate1 = s.split(''); let alternate2 = s.split(''); let alternate1ChangeCount = 0; let alternate2ChangeCount = 0; let i = 0
   const l = s.length
   while (i < l) {
     if (i % 2 === 0) {
@@ -63,9 +62,9 @@ var minOperations = function (s) {
     i++
   }
   return alternate1ChangeCount < alternate2ChangeCount ? alternate1ChangeCount : alternate2ChangeCount
-};
+}
 
 // let s = "0100"
 // let s = "10"
-let s = "1111"
-console.log(minOperations(s));
+let s = '1111'
+console.log(minOperations(s))

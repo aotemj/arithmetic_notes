@@ -6,14 +6,9 @@
 
  现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
 
-
-
  网格中的障碍物和空位置分别用 1 和 0 来表示。
 
-
-
  示例 1：
-
 
  输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
  输出：2
@@ -24,15 +19,13 @@
  2. 向下 -> 向下 -> 向右 -> 向右
  示例 2：
 
-
  输入：obstacleGrid = [[0,1],[0,0]]
  输出：1
 
-
  提示：
 
- m == obstacleGrid.length
- n == obstacleGrid[i].length
+ m === obstacleGrid.length
+ n === obstacleGrid[i].length
  1 <= m, n <= 100
  obstacleGrid[i][j] 为 0 或 1
  */
@@ -42,56 +35,56 @@
  * @return {number}
  */
 var uniquePathsWithObstacles = function (obstacleGrid) {
-    const l = obstacleGrid.length, subL = obstacleGrid[0].length
-    if (obstacleGrid[l - 1][subL - 1] || obstacleGrid[0][0]) {
-        return 0
-    }
-    if (l == 1 & subL == 1 && !obstacleGrid[0][0]) {
-        return 1
-    }
-    let map = {
-        '00': !obstacleGrid[0][0] ? 1 : 0
-    }
+  const l = obstacleGrid.length; const subL = obstacleGrid[0].length
+  if (obstacleGrid[l - 1][subL - 1] || obstacleGrid[0][0]) {
+    return 0
+  }
+  if (l === 1 & subL === 1 && !obstacleGrid[0][0]) {
+    return 1
+  }
+  let map = {
+    '00': !obstacleGrid[0][0] ? 1 : 0
+  }
 
-    for (let i = 0; i < l; i++) {
-        for (let j = 0; j < subL; j++) {
-            if (obstacleGrid[i][j]) {
-                map[`${i}${j}`] = 0
-                continue
-            }
-            if (i === 0 && j > 0) {
-                if (obstacleGrid[i][j] || !map[`${i}${j - 1}`]) {
-                    map[`${i}${j}`] = 0
-                } else if (map[`${i}${j - 1}`]) {
-                    map[`${i}${j}`] = 1
-                }
-            } else if (j === 0 && i > 0) {
-                if (obstacleGrid[i][j] || !map[`${i - 1}${j}`]) {
-                    map[`${i}${j}`] = 0
-                } else if (map[`${i - 1}${j}`]) {
-                    map[`${i}${j}`] = 1
-                }
-            } else if (j > 0 && i > 0) {
-                if (obstacleGrid[i][j - 1]) {
-                    if (obstacleGrid[i - 1][j]) {
-                        map[`${i}${j}`] = 0
-                    } else {
-                        map[`${i}${j}`] = map[`${i - 1}${j}`]
-                    }
-                } else if (obstacleGrid[i - 1][j]) {
-                    if (obstacleGrid[i][j - 1]) {
-                        map[`${i}${j}`] = 0
-                    } else {
-                        map[`${i}${j}`] = map[`${i}${j - 1}`]
-                    }
-                } else {
-                    map[`${i}${j}`] = map[`${i}${j - 1}`] + map[`${i - 1}${j}`]
-                }
-            }
+  for (let i = 0; i < l; i++) {
+    for (let j = 0; j < subL; j++) {
+      if (obstacleGrid[i][j]) {
+        map[`${i}${j}`] = 0
+        continue
+      }
+      if (i === 0 && j > 0) {
+        if (obstacleGrid[i][j] || !map[`${i}${j - 1}`]) {
+          map[`${i}${j}`] = 0
+        } else if (map[`${i}${j - 1}`]) {
+          map[`${i}${j}`] = 1
         }
+      } else if (j === 0 && i > 0) {
+        if (obstacleGrid[i][j] || !map[`${i - 1}${j}`]) {
+          map[`${i}${j}`] = 0
+        } else if (map[`${i - 1}${j}`]) {
+          map[`${i}${j}`] = 1
+        }
+      } else if (j > 0 && i > 0) {
+        if (obstacleGrid[i][j - 1]) {
+          if (obstacleGrid[i - 1][j]) {
+            map[`${i}${j}`] = 0
+          } else {
+            map[`${i}${j}`] = map[`${i - 1}${j}`]
+          }
+        } else if (obstacleGrid[i - 1][j]) {
+          if (obstacleGrid[i][j - 1]) {
+            map[`${i}${j}`] = 0
+          } else {
+            map[`${i}${j}`] = map[`${i}${j - 1}`]
+          }
+        } else {
+          map[`${i}${j}`] = map[`${i}${j - 1}`] + map[`${i - 1}${j}`]
+        }
+      }
     }
-    return map[`${l - 1}${subL - 1}`]
-};
+  }
+  return map[`${l - 1}${subL - 1}`]
+}
 
 // const obstacleGrid = [
 //     [0, 0, 0],
@@ -129,13 +122,12 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
 // ]
 
 const obstacleGrid = [
-    [0, 1, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
+  [0, 1, 0, 0, 0],
+  [1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ]
 // const obstacleGrid = [[0, 0], [0, 1]]
 // const obstacleGrid = [[0, 1], [0, 0]]
 
-
-console.log(uniquePathsWithObstacles(obstacleGrid));
+console.log(uniquePathsWithObstacles(obstacleGrid))

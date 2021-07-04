@@ -37,20 +37,20 @@
  * @return {number}
  */
 var findContentChildren = function (g, s) {
-    const gl = g.length, sl = s.length
-    g.sort((a, b) => a - b)
-    s.sort((a, b) => a - b)
-    let count = 0, gIndex = 0, sIndex = 0
-    while (sIndex < sl) {
-        if (s[sIndex] >= g[gIndex]) {
-            count++
-            gIndex++
-        }
-        sIndex++
+  const sl = s.length
+  g.sort((a, b) => a - b)
+  s.sort((a, b) => a - b)
+  let count = 0; let gIndex = 0; let sIndex = 0
+  while (sIndex < sl) {
+    if (s[sIndex] >= g[gIndex]) {
+      count++
+      gIndex++
     }
-    return count
-};
+    sIndex++
+  }
+  return count
+}
 
-const g = [1, 2, 3], s = [1, 1]
+const g = [1, 2, 3]; const s = [1, 1]
 // const g = [1, 2], s = [1, 2, 3]
-console.log(findContentChildren(g, s));
+console.log(findContentChildren(g, s))

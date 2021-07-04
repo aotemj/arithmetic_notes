@@ -19,7 +19,6 @@
  输入：nums = [3,1,2,10,1]
  输出：[3,4,6,16,17]
 
-
  提示：
 
  1 <= nums.length <= 1000
@@ -31,17 +30,17 @@
  * @return {number[]}
  */
 var runningSum = function (nums) {
-    let length = nums.length
-    let newNums = []
-    for (let i = 0; i < length; i++) {
-        let sum = 0
-        for (let j = 0; j <= i; j++) {
-            sum += nums[j]
-        }
-        newNums[i] = sum
+  let length = nums.length
+  let newNums = []
+  for (let i = 0; i < length; i++) {
+    let sum = 0
+    for (let j = 0; j <= i; j++) {
+      sum += nums[j]
     }
-    return newNums
-};
+    newNums[i] = sum
+  }
+  return newNums
+}
 runningSum([1, 2, 3, 4])
 runningSum([1, 1, 1, 1, 1])
 runningSum([3, 1, 2, 10, 1])

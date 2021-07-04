@@ -19,7 +19,6 @@
  1 <= arr[i] <= 1000
  */
 
-
 /**
  * 思路：
  * 遍历当前数组，如果当前值是奇数，则判断下一个是否是奇数，如果是，则判断下下一个是否为奇数，如果是则跳出循环
@@ -27,22 +26,22 @@
  * @return {boolean}
  */
 var threeConsecutiveOdds = function (arr) {
-    let l = arr.length
-    for (let i = 0; i < l - 2; i++) {
-        if (isOdd(arr[i]) && isOdd(arr[i + 1]) && isOdd(arr[i + 2])) {
-            return true
-        } else {
-            continue
-        }
+  let l = arr.length
+  for (let i = 0; i < l - 2; i++) {
+    if (isOdd(arr[i]) && isOdd(arr[i + 1]) && isOdd(arr[i + 2])) {
+      return true
+    } else {
+      continue
     }
+  }
 
-    function isOdd(num) {
-        return num % 2 !== 0
-    }
+  function isOdd (num) {
+    return num % 2 !== 0
+  }
 
-    return false
-};
+  return false
+}
 
-console.log(threeConsecutiveOdds([2, 6, 4, 1]));
-console.log(threeConsecutiveOdds([1, 2, 34, 3, 4, 5, 7, 23, 12]));
-console.log(threeConsecutiveOdds([5, 7, 0, 23]));
+console.log(threeConsecutiveOdds([2, 6, 4, 1]))
+console.log(threeConsecutiveOdds([1, 2, 34, 3, 4, 5, 7, 23, 12]))
+console.log(threeConsecutiveOdds([5, 7, 0, 23]))

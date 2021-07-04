@@ -6,10 +6,7 @@
 
  问总共有多少条不同的路径？
 
-
-
  示例 1：
-
 
  输入：m = 3, n = 7
  输出：28
@@ -31,7 +28,6 @@
  输入：m = 3, n = 3
  输出：6
 
-
  提示：
 
  1 <= m, n <= 100
@@ -45,11 +41,11 @@
  * @return {number}
  */
 let map = {
-    '1,1': 1,
-    '1,2': 1,
-    '2,1': 1,
-    '2,2': 2,
-    '3,1': 1,
+  '1,1': 1,
+  '1,2': 1,
+  '2,1': 1,
+  '2,2': 2,
+  '3,1': 1
 }
 // var uniquePaths = function (m, n) {
 //     for (let i = 1; i <= m; i++) {
@@ -66,16 +62,16 @@ let map = {
 // };
 
 var uniquePaths = function (m, n) {
-    if (m === 1 || n === 1) {
-        map[`${m},${n}`] = 1
-    } else if ((m >= 3 && n > 0) || (n >= 3 && m > 0)) {
-        map[`${m},${n}`] = uniquePaths(m - 1, n) + uniquePaths(m, n - 1)
-    }
-    return map[`${m},${n}`]
-};
+  if (m === 1 || n === 1) {
+    map[`${m},${n}`] = 1
+  } else if ((m >= 3 && n > 0) || (n >= 3 && m > 0)) {
+    map[`${m},${n}`] = uniquePaths(m - 1, n) + uniquePaths(m, n - 1)
+  }
+  return map[`${m},${n}`]
+}
 
 // const m = 7, n = 3
 // const m = 3, n = 2
 // const m = 3, n = 3
-const m = 1, n = 1
-console.log(uniquePaths(m, n));
+const m = 1; const n = 1
+console.log(uniquePaths(m, n))

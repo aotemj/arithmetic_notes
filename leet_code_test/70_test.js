@@ -28,17 +28,17 @@
  * @return {number}
  */
 var climbStairs = function (n) {
-    let arr = [1, 2]
+  let arr = [1, 2]
 
-    if (n < 2) {
-        return arr[n - 1]
+  if (n < 2) {
+    return arr[n - 1]
+  }
+  for (let i = 0; i < n; i++) {
+    if (i > 1) {
+      arr[i] = arr[i - 1] + arr[i - 2]
     }
-    for (let i = 0; i < n; i++) {
-        if (i > 1) {
-            arr[i] = arr[i - 1] + arr[i - 2]
-        }
-    }
-    return arr[arr.length - 1]
-};
-console.log(climbStairs(6));
-console.log(climbStairs(2));
+  }
+  return arr[arr.length - 1]
+}
+console.log(climbStairs(6))
+console.log(climbStairs(2))

@@ -2,11 +2,9 @@
  * 1512. 好数对的数目
  给你一个整数数组 nums 。
 
- 如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i < j ，就可以认为这是一组 好数对 。
+ 如果一组数字 (i,j) 满足 nums[i] === nums[j] 且 i < j ，就可以认为这是一组 好数对 。
 
  返回好数对的数目。
-
-
 
  示例 1：
 
@@ -23,7 +21,6 @@
  输入：nums = [1,2,3]
  输出：0
 
-
  提示：
 
  1 <= nums.length <= 100
@@ -35,17 +32,17 @@
  * @return {number}
  */
 var numIdenticalPairs = function (nums) {
-    let length = nums.length
-    let count = 0
-    for (let i = 0; i < length; i++) {
-        for (let j = i; j < length; j++) {
-            if (i < j && nums[i] == nums[j]) {
-                count += 1
-            }
-        }
+  let length = nums.length
+  let count = 0
+  for (let i = 0; i < length; i++) {
+    for (let j = i; j < length; j++) {
+      if (i < j && nums[i] === nums[j]) {
+        count += 1
+      }
     }
-    return count
-};
+  }
+  return count
+}
 numIdenticalPairs([1, 2, 3, 1, 1, 3])
 numIdenticalPairs([1, 1, 1, 1])
 numIdenticalPairs([1, 2, 3])

@@ -9,7 +9,6 @@
  一个元素越大，那么序号越大。如果两个元素相等，那么它们的序号相同。
  每个数字的序号都应该尽可能地小。
 
-
  示例 1：
 
  输入：arr = [40,10,20,30]
@@ -26,7 +25,6 @@
  [5,9,12,12,28,37,56,80,100]
  输出：[5,3,4,2,8,6,7,1,3]
 
-
  提示：
 
  0 <= arr.length <= 105
@@ -41,8 +39,8 @@
  * @return {number[]}
  */
 var arrayRankTransform = function (arr) {
-  let sortArr = [...new Set(Object.assign([], arr).sort((a, b) => a - b))], map = {}
-  let l = sortArr.length, res = []
+  let sortArr = [...new Set(Object.assign([], arr).sort((a, b) => a - b))]; let map = {}
+  let l = sortArr.length; let res = []
   for (let i = 0; i < l; i++) {
     map[sortArr[i]] = i + 1
   }
@@ -50,9 +48,9 @@ var arrayRankTransform = function (arr) {
     res[i] = map[arr[i]]
   }
   return res
-};
+}
 
-console.log(arrayRankTransform([40, 10, 20, 30]));
+console.log(arrayRankTransform([40, 10, 20, 30]))
 // console.log(arrayRankTransform([100, 100, 100]));
 // console.log(arrayRankTransform([37, 12, 28, 9, 100, 56, 80, 5, 12]));
-console.log(arrayRankTransform([27, 46, -3, -36, 31, -14, -7, -36, 27, -14, 41, -40, 23]));
+console.log(arrayRankTransform([27, 46, -3, -36, 31, -14, -7, -36, 27, -14, 41, -40, 23]))

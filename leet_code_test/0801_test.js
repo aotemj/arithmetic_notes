@@ -20,11 +20,11 @@
  * @return {number}
  */
 var waysToStep = function (n) {
-    let arr = [1, 2, 4, 7, 13]
-    if (n <= 4) return arr[n - 1]
-    for (let i = 5; i < n; i++) {
-        arr[i] = (arr[i - 1] + arr[i - 2] + arr[i - 3]) % 1000000007
-    }
-    return arr[n - 1]
-};
-console.log(waysToStep(5));
+  let arr = [1, 2, 4, 7, 13]
+  if (n <= 4) return arr[n - 1]
+  for (let i = 5; i < n; i++) {
+    arr[i] = (arr[i - 1] + arr[i - 2] + arr[i - 3]) % 1000000007
+  }
+  return arr[n - 1]
+}
+console.log(waysToStep(5))

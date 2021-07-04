@@ -24,22 +24,22 @@
  * @return {boolean}
  */
 var canJump = function (nums) {
-    let map = {
-        0: true
+  let map = {
+    0: true
+  }
+  let l = nums.length
+  for (let i = 1; i < l; i++) {
+    for (let j = 0; j < i; j++) {
+      if (map[j] && j + nums[j] >= i) {
+        map[i] = true
+        break
+      }
     }
-    let l = nums.length;
-    for (let i = 1; i < l; i++) {
-        for (let j = 0; j < i; j++) {
-            if (map[j] && j + nums[j] >= i) {
-                map[i] = true
-                break
-            }
-        }
-    }
-    return !!map[l - 1]
-};
+  }
+  return !!map[l - 1]
+}
 
 let nums = [2, 3, 1, 1, 4]
 
-console.log(canJump(nums));
+console.log(canJump(nums))
 

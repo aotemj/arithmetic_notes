@@ -22,7 +22,7 @@
  提示：
 
  1 <= n <= 104
- nums.length == 2 * n
+ nums.length === 2 * n
  -104 <= nums[i] <= 104
  */
 
@@ -32,16 +32,16 @@
  * @return {number}
  */
 var arrayPairSum = function (nums) {
-    nums.sort((a, b) => a - b)
-    const l = nums.length
-    let res = 0
-    for (let i = 0; i < l - 1; i += 2) {
-        res += Math.min(nums[i], nums[i + 1])
-    }
-    return res;
-};
+  nums.sort((a, b) => a - b)
+  const l = nums.length
+  let res = 0
+  for (let i = 0; i < l - 1; i += 2) {
+    res += Math.min(nums[i], nums[i + 1])
+  }
+  return res
+}
 
 // let nums = [6, 2, 6, 5, 1, 2]
 // let nums = [1, 4, 3, 2]
 let nums = [1, 2, 3, 2]
-console.log(arrayPairSum(nums));
+console.log(arrayPairSum(nums))

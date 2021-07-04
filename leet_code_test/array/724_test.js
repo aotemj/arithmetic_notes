@@ -8,7 +8,6 @@
 
  注意：中心下标可能出现在数组的两端。
 
-
  示例 1：
 
  输入：nums = [1, 7, 3, 6, 5, 6]
@@ -45,8 +44,8 @@
  * @return {number}
  */
 var pivotIndex = function (nums) {
-  const l = nums.length, sumNums = nums.reduce((prev, current) => prev + current);
-  let leftSum = 0, centerIndex = -1
+  const l = nums.length; const sumNums = nums.reduce((prev, current) => prev + current)
+  let leftSum = 0; let centerIndex = -1
   for (let i = 0; i < l; i++) {
     if (leftSum === (sumNums - nums[i]) / 2) {
       centerIndex = i
@@ -56,10 +55,10 @@ var pivotIndex = function (nums) {
     }
   }
   return centerIndex
-};
+}
 
 const nums = [1, 7, 3, 6, 5, 6]
 // const nums = [-1, -1, 0, 1, 1, 0]
 // const nums = [2, 1, -1]
 // const nums = [1, 2, 3]
-console.log(pivotIndex(nums));
+console.log(pivotIndex(nums))

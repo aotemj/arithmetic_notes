@@ -6,10 +6,7 @@
 
  请你找出达到楼层顶部的最低花费。在开始时，你可以选择从下标为 0 或 1 的元素作为初始阶梯。
 
-
-
  示例 1：
-
 
  输入：cost = [10, 15, 20]
  输出：15
@@ -19,7 +16,6 @@
  输入：cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
  输出：6
  解释：最低花费方式是从 cost[0] 开始，逐个经过那些 1 ，跳过 cost[3] ，一共花费 6 。
-
 
  提示：
 
@@ -36,25 +32,24 @@
  * @return {number}
  */
 var minCostClimbingStairs = function (cost) {
-    const l = cost.length
-    let dpArr = [0, 0]
-    while (dpArr.length <= l) {
-        const dpl = dpArr.length
-        dpArr[dpl] = Math.min(dpArr[dpl - 1] + cost[dpl - 1], dpArr[dpl - 2] + cost[dpl - 2])
-    }
-    return dpArr.pop()
-};
+  const l = cost.length
+  let dpArr = [0, 0]
+  while (dpArr.length <= l) {
+    const dpl = dpArr.length
+    dpArr[dpl] = Math.min(dpArr[dpl - 1] + cost[dpl - 1], dpArr[dpl - 2] + cost[dpl - 2])
+  }
+  return dpArr.pop()
+}
 
 const cost = [10, 15, 20]
 // const cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
 
-console.log(minCostClimbingStairs(cost));
+console.log(minCostClimbingStairs(cost))
 
 // i    花费体力
 // 0    10
 // 1    15
 // 2    20
-
 
 // 0    1
 // 1    100

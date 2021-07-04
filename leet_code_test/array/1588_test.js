@@ -31,13 +31,11 @@
  输入：arr = [10,11,12]
  输出：66
 
-
  提示：
 
  1 <= arr.length <= 100
  1 <= arr[i] <= 1000
  */
-
 
 /**
  * method1
@@ -81,17 +79,16 @@
  */
 
 var sumOddLengthSubarrays = function (arr) {
-    let l = arr.length, res = 0
-    for (let i = 1; i <= arr.length; i += 2) {
-        for (let j = 0; j <= l - i; j++) {
-            res += (arr.slice(j, i + j).reduce((prev, current) => prev + current))
-        }
+  let l = arr.length; let res = 0
+  for (let i = 1; i <= arr.length; i += 2) {
+    for (let j = 0; j <= l - i; j++) {
+      res += (arr.slice(j, i + j).reduce((prev, current) => prev + current))
     }
-    return res
-};
+  }
+  return res
+}
 
-console.log(sumOddLengthSubarrays([1, 4, 2, 5, 3]));
-console.log(sumOddLengthSubarrays([1, 2]));
-console.log(sumOddLengthSubarrays([10, 11, 12]));
-
+console.log(sumOddLengthSubarrays([1, 4, 2, 5, 3]))
+console.log(sumOddLengthSubarrays([1, 2]))
+console.log(sumOddLengthSubarrays([10, 11, 12]))
 

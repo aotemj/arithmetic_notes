@@ -1,11 +1,9 @@
 /**
  *
  1672. 最富有客户的资产总量
- 给你一个 m x n 的整数网格 accounts ，其中 accounts[i][j] 是第 i​​​​​​​​​​​​ 位客户在第 j 家银行托管的资产数量。返回最富有客户所拥有的 资产总量 。
+ 给你一个 m x n 的整数网格 accounts ，其中 accounts[i][j] 是第 i 位客户在第 j 家银行托管的资产数量。返回最富有客户所拥有的 资产总量 。
 
  客户的 资产总量 就是他们在各家银行托管的资产数量之和。最富有客户就是 资产总量 最大的客户。
-
-
 
  示例 1：
 
@@ -29,11 +27,10 @@
  输入：accounts = [[2,8,7],[7,1,3],[1,9,5]]
  输出：17
 
-
  提示：
 
- m == accounts.length
- n == accounts[i].length
+ m === accounts.length
+ n === accounts[i].length
  1 <= m, n <= 50
  1 <= accounts[i][j] <= 100
 
@@ -56,9 +53,8 @@ var maximumWealth = function (accounts) {
     }
   }
   return max
-};
+}
 
-console.log(maximumWealth([[1, 2, 3], [3, 2, 1]]));
-console.log(maximumWealth([[1, 5], [7, 3], [3, 5]]));
-
+console.log(maximumWealth([[1, 2, 3], [3, 2, 1]]))
+console.log(maximumWealth([[1, 5], [7, 3], [3, 5]]))
 

@@ -38,10 +38,9 @@
  tsr
  所有 3 列都是非升序排列的，所以都要删除。
 
-
  提示：
 
- n == strs.length
+ n === strs.length
  1 <= n <= 100
  1 <= strs[i].length <= 1000
  strs[i] 由小写英文字母组成
@@ -53,22 +52,22 @@
  * @return {number}
  */
 var minDeletionSize = function (strs) {
-    const wordLength = strs[0].length, strLength = strs.length
-    let delColumn = 0
-    for (let i = 0; i < wordLength; i++) {
-        for (let j = 0; j < strLength - 1; j++) {
-            const current = strs[j], next = strs[j + 1]
-            if (current[i] > next[i]) {
-                delColumn += 1
-                break
-            }
-        }
+  const wordLength = strs[0].length; const strLength = strs.length
+  let delColumn = 0
+  for (let i = 0; i < wordLength; i++) {
+    for (let j = 0; j < strLength - 1; j++) {
+      const current = strs[j]; const next = strs[j + 1]
+      if (current[i] > next[i]) {
+        delColumn += 1
+        break
+      }
     }
-    return delColumn
-};
+  }
+  return delColumn
+}
 
 // const strs = ["abc", "bce", "cae"]
 // const strs = ["cba", "daf", "ghi"]
 // const strs = ["a", "b"]
-const strs = ["zyx", "wvu", "tsr"]
-console.log(minDeletionSize(strs));
+const strs = ['zyx', 'wvu', 'tsr']
+console.log(minDeletionSize(strs))

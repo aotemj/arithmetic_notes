@@ -13,13 +13,11 @@
  解释: 6是最大的整数, 对于数组中的其他整数,
  6大于数组中其他元素的两倍。6的索引是1, 所以我们返回1.
 
-
  示例 2:
 
  输入: nums = [1, 2, 3, 4]
  输出: -1
  解释: 4没有超过3的两倍大, 所以我们返回 -1.
-
 
  提示:
 
@@ -35,7 +33,7 @@
 var dominantIndex = function (nums) {
   const l = nums.length
   if (l === 1) return 0
-  let max = nums[0], index = -1
+  let max = nums[0]; let index = -1
   for (let i = 0; i < l; i++) {
     const item = nums[i]
     if (item >= max) {
@@ -52,10 +50,10 @@ var dominantIndex = function (nums) {
   }
 
   return index
-};
+}
 
 // const nums = [3, 6, 1, 0]
 // const nums = [1, 2, 3, 4]
 const nums = [1]
 // const nums = [1,0]
-console.log(dominantIndex(nums));
+console.log(dominantIndex(nums))

@@ -34,23 +34,23 @@
  * @return {boolean}
  */
 var wordBreak = function (s, wordDict) {
-    let map = {
-        0: true
+  let map = {
+    0: true
+  }
+  const sl = s.length
+  for (let i = 1; i <= sl; i++) {
+    for (let j = 0; j < i; j++) {
+      if (map[j] && wordDict.includes(s.substring(j, i))) {
+        map[i] = true
+        break
+      }
     }
-    const sl = s.length
-    for (let i = 1; i <= sl; i++) {
-        for (let j = 0; j < i; j++) {
-            if (map[j] && wordDict.includes(s.substring(j, i))) {
-                map[i] = true;
-                break;
-            }
-        }
-    }
-    return !!map[sl]
-};
+  }
+  return !!map[sl]
+}
 
 // const s = "leetcode", wordDict = ["leet", "code"]
-const s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"] // false
+const s = 'catsandog'; const wordDict = ['cats', 'dog', 'sand', 'and', 'cat'] // false
 // const s = "applepenapple", wordDict = ["apple", "pen"]
 // const s = "a", wordDict = ["b"]
 // const s = "bb", wordDict = ["a", "b", "bbb", "bbbb"]
@@ -58,5 +58,4 @@ const s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"] // false
 // const s = "a", wordDict = ["a"]
 // const s = "cars", wordDict = ["car", "ca", "rs"]
 
-
-console.log(wordBreak(s, wordDict));
+console.log(wordBreak(s, wordDict))

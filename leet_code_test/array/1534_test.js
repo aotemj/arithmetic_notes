@@ -23,7 +23,6 @@
  输出：0
  解释：不存在满足所有条件的三元组。
 
-
  提示：
 
  3 <= arr.length <= 100
@@ -40,7 +39,7 @@
  * @return {number}
  */
 var countGoodTriplets = function (arr, a, b, c) {
-  let i = 0, j = 1, k = 2, l = arr.length, count = 0
+  let i = 0; let j = 1; let k = 2; let l = arr.length; let count = 0
   while (i < l) {
     if (conformCondition(arr, i, j, k, a, b, c)) {
       count++
@@ -48,16 +47,16 @@ var countGoodTriplets = function (arr, a, b, c) {
     if (k < l) {
       k++
     } else if (j < l && j < k) {
-      j++;
+      j++
       k = j + 1
     } else {
-      i++;
-      j = i + 1;
-      k = j + 1;
+      i++
+      j = i + 1
+      k = j + 1
     }
   }
 
-  function conformCondition(arr, i, j, k, a, b, c) {
+  function conformCondition (arr, i, j, k, a, b, c) {
     if (Math.abs(arr[i] - arr[j]) <= a && Math.abs(arr[j] - arr[k]) <= b && Math.abs(arr[i] - arr[k]) <= c) {
       return true
     } else {
@@ -66,8 +65,8 @@ var countGoodTriplets = function (arr, a, b, c) {
   }
 
   return count
-};
+}
 
 // arr = [3, 0, 1, 1, 9, 7], a = 7, b = 2, c = 3
-let arr = [1, 1, 2, 2, 3], a = 0, b = 0, c = 1
-console.log(countGoodTriplets(arr, a, b, c));
+let arr = [1, 1, 2, 2, 3]; let a = 0; let b = 0; let c = 1
+console.log(countGoodTriplets(arr, a, b, c))

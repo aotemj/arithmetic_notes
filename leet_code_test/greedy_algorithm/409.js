@@ -25,27 +25,27 @@
  * @return {number}
  */
 var longestPalindrome = function (s) {
-    const l = s.length;
-    let maxL = 0, map = {}, res = 0
-    for (let i = 0; i < l; i++) {
-        if (map[s[i]]) {
-            map[s[i]] += 1
-        } else {
-            map[s[i]] = 1
-        }
+  const l = s.length
+  let maxL = 0; let map = {}; let res = 0
+  for (let i = 0; i < l; i++) {
+    if (map[s[i]]) {
+      map[s[i]] += 1
+    } else {
+      map[s[i]] = 1
     }
-    for (let v of Object.values(map)) {
-        if (v % 2 === 0) {
-            res += (v - 0)
-        } else {
-            res += v - 1
-            maxL = Math.max(maxL, (v - 0))
-        }
+  }
+  for (let v of Object.values(map)) {
+    if (v % 2 === 0) {
+      res += (v - 0)
+    } else {
+      res += v - 1
+      maxL = Math.max(maxL, (v - 0))
     }
-    return maxL ? res + 1 : res
-};
+  }
+  return maxL ? res + 1 : res
+}
 
-let s = "bb"
+let s = 'bb'
 // let s = "abccccdd"
 // let s = "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
-console.log(longestPalindrome(s));
+console.log(longestPalindrome(s))

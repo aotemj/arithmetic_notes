@@ -26,7 +26,7 @@
  提示：
 
  1 <= points.length <= 104
- points[i].length == 2
+ points[i].length === 2
  1 <= x, y, ai, bi <= 104
  */
 
@@ -40,11 +40,11 @@
  */
 var nearestValidPoint = function (x, y, points) {
   const l = points.length
-  let minDistance = -1, index = -1
+  let minDistance = -1; let index = -1
   for (let i = 0; i < l; i++) {
     const item = points[i]
     const [xi, yi] = item
-    if (xi == x || yi == y) {
+    if (xi === x || yi === y) {
       const distance = Math.abs(xi - x) + Math.abs(yi - y)
       if (minDistance !== -1) {
         if (minDistance < distance) {
@@ -60,8 +60,8 @@ var nearestValidPoint = function (x, y, points) {
     }
   }
   return index
-};
+}
 // let x = 3, y = 4, points = [[3, 4]]
 // const x = 3, y = 4, points = [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]]
-const x = 3, y = 4, points = [[2, 3]]
-console.log(nearestValidPoint(x, y, points));
+const x = 3; const y = 4; const points = [[2, 3]]
+console.log(nearestValidPoint(x, y, points))

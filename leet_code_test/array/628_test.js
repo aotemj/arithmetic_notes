@@ -15,7 +15,6 @@
  输入：nums = [-1,-2,-3]
  输出：-6
 
-
  提示：
 
  3 <= nums.length <= 104
@@ -31,13 +30,12 @@
  */
 
 var maximumProduct = function (nums) {
-    let l = nums.length,
-        transNum = nums.sort((a, b) => a - b);
-    return Math.max(transNum[0] * transNum[1] * transNum[l - 1], transNum[l - 1] * transNum[l - 2], transNum[l - 3])
-};
+  let l = nums.length
+  let transNum = nums.sort((a, b) => a - b)
+  return Math.max(transNum[0] * transNum[1] * transNum[l - 1], transNum[l - 1] * transNum[l - 2], transNum[l - 3])
+}
 
-console.log(maximumProduct([1, 2, 3]));
-console.log(maximumProduct([1, 2, 3, 4]));
-console.log(maximumProduct([-1, -2, -3, 4, 5]));
-
+console.log(maximumProduct([1, 2, 3]))
+console.log(maximumProduct([1, 2, 3, 4]))
+console.log(maximumProduct([-1, -2, -3, 4, 5]))
 

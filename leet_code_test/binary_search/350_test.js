@@ -2,8 +2,6 @@
  350. 两个数组的交集 II
  给定两个数组，编写一个函数来计算它们的交集。
 
-
-
  示例
  1：
 
@@ -15,7 +13,6 @@
 
  输入：nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4]
  输出：[4, 9]
-
 
  说明：
 
@@ -79,9 +76,9 @@ var intersect = function (nums1, nums2) {
   let sortedNums1 = nums1.sort((a, b) => a - b)
   let sortedNums2 = nums2.sort((a, b) => a - b)
 
-  let l1 = sortedNums1.length, l2 = sortedNums2.length
+  let l1 = sortedNums1.length; let l2 = sortedNums2.length
 
-  let p1 = 0, p2 = 0, res = []
+  let p1 = 0; let p2 = 0; let res = []
 
   while (p1 < l1 && p2 < l2) {
     let item1 = sortedNums1[p1]
@@ -101,16 +98,7 @@ var intersect = function (nums1, nums2) {
 
   return res
 }
-console.log(intersect([1, 2, 2, 1], [2, 2]));
-nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4]
-console.log(intersect(nums1, nums2));
-
-
-
-
-
-
-
-
-
+console.log(intersect([1, 2, 2, 1], [2, 2]))
+const nums1 = [4, 9, 5]; const nums2 = [9, 4, 9, 8, 4]
+console.log(intersect(nums1, nums2))
 

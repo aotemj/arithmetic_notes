@@ -13,7 +13,6 @@
  输入：dominoes = [[1,2],[2,1],[3,4],[5,6]]
  输出：1
 
-
  提示：
 
  1 <= dominoes.length <= 40000
@@ -41,7 +40,7 @@ var numEquivDominoPairs = function (dominoes) {
     }
   }
   return count
-};
+}
 const dominoes = [[1, 2], [2, 1], [3, 4], [5, 6]]
 // const dominoes = [[1, 2], [1, 2], [1, 1], [1, 2], [2, 2]]
-console.log(numEquivDominoPairs(dominoes));
+console.log(numEquivDominoPairs(dominoes))

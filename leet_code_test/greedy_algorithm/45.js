@@ -19,7 +19,6 @@
  输入: [2,3,0,1,4]
  输出: 2
 
-
  提示:
 
  1 <= nums.length <= 1000
@@ -32,20 +31,20 @@
  * @return {number}
  */
 var jump = function (nums) {
-    const l = nums.length;
-    let jumpCount = 0, // 跳跃次数
-        maxPosition = 0, // 目前能跳到的最远位置
-        end = 0; // 上次可达范围右边界（下次的最右起跳点）
-    for (let i = 0; i < l - 1; i++) {
-        maxPosition = Math.max(maxPosition, i + nums[i])
-        if (i === end) {
-            end = maxPosition;
-            jumpCount++;
-        }
+  const l = nums.length
+  let jumpCount = 0 // 跳跃次数
+  let maxPosition = 0 // 目前能跳到的最远位置
+  let end = 0 // 上次可达范围右边界（下次的最右起跳点）
+  for (let i = 0; i < l - 1; i++) {
+    maxPosition = Math.max(maxPosition, i + nums[i])
+    if (i === end) {
+      end = maxPosition
+      jumpCount++
     }
-    return jumpCount
-};
+  }
+  return jumpCount
+}
 
 // const nums = [2, 3, 1, 1, 4]
 const nums = [2, 3, 0, 1, 4]
-console.log(jump(nums));
+console.log(jump(nums))

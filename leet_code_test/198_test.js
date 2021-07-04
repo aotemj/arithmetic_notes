@@ -4,8 +4,6 @@
 
  给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
 
-
-
  示例 1：
 
  输入：[1,2,3,1]
@@ -19,7 +17,6 @@
  解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
  偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 
-
  提示：
 
  0 <= nums.length <= 100
@@ -27,33 +24,24 @@
 
  */
 
-
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var rob = function (nums) {
-    let length = nums.length
-    if (!length) return 0
-    if (length == 2) return Math.max(nums[0], nums[1])
-    let resArr = [nums[0], Math.max(nums[0], nums[1])]
-    for (let i = 2; i < length; i++) {
-        // 当前项的最大值，要么是前一项，要么是前2项+当前项
-        resArr[i] = Math.max(resArr[i - 1], (resArr[i - 2] + nums[i]))
-    }
-    return resArr[length - 1]
-};
+  let length = nums.length
+  if (!length) return 0
+  if (length === 2) return Math.max(nums[0], nums[1])
+  let resArr = [nums[0], Math.max(nums[0], nums[1])]
+  for (let i = 2; i < length; i++) {
+    // 当前项的最大值，要么是前一项，要么是前2项+当前项
+    resArr[i] = Math.max(resArr[i - 1], (resArr[i - 2] + nums[i]))
+  }
+  return resArr[length - 1]
+}
 
-console.log(rob([1, 2, 3, 1]));
-console.log(rob([2, 7, 9, 3, 1]));
-console.log(rob([2, 1, 1, 2]));
-console.log(rob([2, 1]));
-
-
-
-
-
-
-
-
+console.log(rob([1, 2, 3, 1]))
+console.log(rob([2, 7, 9, 3, 1]))
+console.log(rob([2, 1, 1, 2]))
+console.log(rob([2, 1]))
 

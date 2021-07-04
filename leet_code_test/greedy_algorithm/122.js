@@ -25,7 +25,6 @@
  输出: 0
  解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
 
-
  提示：
 
  1 <= prices.length <= 3 * 104
@@ -37,29 +36,28 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-    const l = prices.length
-    let profit = 0, pIndex = 0, cIndex = 1
-    while (cIndex < l) {
-        const prev = prices[pIndex], current = prices[cIndex]
-        if (prev < current) {
-            if (current < prices[cIndex + 1]) {
-                cIndex++
-            } else {
-                profit += current - prev
-                pIndex = cIndex
-                cIndex++
-            }
-        } else {
-            pIndex++
-            cIndex++
-        }
+  const l = prices.length
+  let profit = 0; let pIndex = 0; let cIndex = 1
+  while (cIndex < l) {
+    const prev = prices[pIndex]; const current = prices[cIndex]
+    if (prev < current) {
+      if (current < prices[cIndex + 1]) {
+        cIndex++
+      } else {
+        profit += current - prev
+        pIndex = cIndex
+        cIndex++
+      }
+    } else {
+      pIndex++
+      cIndex++
     }
-    return profit
+  }
+  return profit
 }
-
 
 // let prices = [1, 2, 3, 4, 5]
 // let prices = [2, 1, 4, 5, 2, 9, 7]
 // let prices = [7, 6, 4, 3, 1]
 let prices = [7, 1, 5, 3, 6, 4]
-console.log(maxProfit(prices));
+console.log(maxProfit(prices))

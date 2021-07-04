@@ -25,28 +25,28 @@
  * @return {string[][]}
  */
 var groupAnagrams = function (strs) {
-    const l = strs.length
-    let map = {}
-    for (let i = 0; i < l; i++) {
-        const item = strs[i]
-        const l = item.length
-        let chars = []
-        for (let j = 0; j < l; j++) {
-            const strItem = item.substring(j, j + 1)
-            const char = strItem.charCodeAt()
-            chars.push(char)
-        }
-
-        const charsStr = chars.sort((a, b) => a - b).join("")
-
-        if (map[charsStr]) {
-            map[charsStr].push(item)
-        } else {
-            map[charsStr] = [item]
-        }
+  const l = strs.length
+  let map = {}
+  for (let i = 0; i < l; i++) {
+    const item = strs[i]
+    const l = item.length
+    let chars = []
+    for (let j = 0; j < l; j++) {
+      const strItem = item.substring(j, j + 1)
+      const char = strItem.charCodeAt()
+      chars.push(char)
     }
-    return Object.values(map)
-};
 
-const strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-console.log(groupAnagrams(strs));
+    const charsStr = chars.sort((a, b) => a - b).join('')
+
+    if (map[charsStr]) {
+      map[charsStr].push(item)
+    } else {
+      map[charsStr] = [item]
+    }
+  }
+  return Object.values(map)
+}
+
+const strs = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+console.log(groupAnagrams(strs))

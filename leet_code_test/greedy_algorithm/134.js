@@ -51,44 +51,44 @@
  * @return {number}
  */
 var canCompleteCircuit = function (gas, cost) {
-    const gl = gas.length
-    let start = -1;
-    if (gas.length === 1 && gas[0] >= cost[0]) {
-        return 0
+  const gl = gas.length
+  let start = -1
+  if (gas.length === 1 && gas[0] >= cost[0]) {
+    return 0
+  }
+  for (let i = 0; i < gl; i++) {
+    const gItem = gas[i]; const cItem = cost[i]
+    // 可以当做起始
+    if (gItem > cItem) {
+      if (isCanCompleteCircuit(i)) {
+        start = i
+        break
+      }
     }
-    for (let i = 0; i < gl; i++) {
-        const gItem = gas[i], cItem = cost[i]
-        // 可以当做起始
-        if (gItem > cItem) {
-            if (isCanCompleteCircuit(i)) {
-                start = i;
-                break
-            }
-        }
-    }
-    return start
+  }
+  return start
 
-    function isCanCompleteCircuit(startIndex) {
-        let currentGas = gas[startIndex], transGas = gas.slice(startIndex).concat(gas.slice(0, startIndex)),
-            transCost = cost.slice(startIndex).concat(cost.slice(0, startIndex))
-        for (let i = 0; i < gl; i++) {
-            const cItem = transCost[i],
-                nextGas = currentGas - cItem + transGas[i + 1],
-                nextCost = transCost[i + 1]
-            currentGas = nextGas
-            if (nextGas < nextCost) {
-                return false
-            }
-        }
-        return true
+  function isCanCompleteCircuit (startIndex) {
+    let currentGas = gas[startIndex]; let transGas = gas.slice(startIndex).concat(gas.slice(0, startIndex))
+    let transCost = cost.slice(startIndex).concat(cost.slice(0, startIndex))
+    for (let i = 0; i < gl; i++) {
+      const cItem = transCost[i]
+      const nextGas = currentGas - cItem + transGas[i + 1]
+      const nextCost = transCost[i + 1]
+      currentGas = nextGas
+      if (nextGas < nextCost) {
+        return false
+      }
     }
+    return true
+  }
 }
 
 // const gas = [1, 2, 3, 4, 5],
 //     cost = [3, 4, 5, 1, 2]
 // const gas = [2, 3, 4],
 //     cost = [3, 4, 3]
-const gas = [2],
-    cost = [2]
+const gas = [2]
+const cost = [2]
 
-console.log(canCompleteCircuit(gas, cost));
+console.log(canCompleteCircuit(gas, cost))

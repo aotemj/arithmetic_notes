@@ -23,7 +23,6 @@
  输入：boxTypes = [[5,10],[2,5],[4,7],[3,9]], truckSize = 10
  输出：91
 
-
  提示：
 
  1 <= boxTypes.length <= 1000
@@ -37,25 +36,25 @@
  * @return {number}
  */
 var maximumUnits = function (boxTypes, truckSize) {
-    const l = boxTypes.length, sortBoxTypes = [...boxTypes].sort((a, b) => b[1] - a[1])
-    let currentTruckSize = 0,
-        index = 0,
-        maxUnit = 0
-    while (currentTruckSize <= truckSize && index < l) {
-        const item = sortBoxTypes[index]
-        if (currentTruckSize + item[0] <= truckSize) {
-            maxUnit += item[0] * item[1]
-            currentTruckSize += item[0]
-        } else {
-            maxUnit += (truckSize - currentTruckSize) * item[1]
-            break
-        }
-        index++;
+  const l = boxTypes.length; const sortBoxTypes = [...boxTypes].sort((a, b) => b[1] - a[1])
+  let currentTruckSize = 0
+  let index = 0
+  let maxUnit = 0
+  while (currentTruckSize <= truckSize && index < l) {
+    const item = sortBoxTypes[index]
+    if (currentTruckSize + item[0] <= truckSize) {
+      maxUnit += item[0] * item[1]
+      currentTruckSize += item[0]
+    } else {
+      maxUnit += (truckSize - currentTruckSize) * item[1]
+      break
     }
-    return maxUnit
-};
+    index++
+  }
+  return maxUnit
+}
 
 // const boxTypes = [[1, 3], [2, 2], [3, 1]], truckSize = 4
-const boxTypes = [[1, 3], [5, 5], [2, 5], [4, 2], [4, 1], [3, 1], [2, 2], [1, 3], [2, 5], [3, 2]], truckSize = 35
+const boxTypes = [[1, 3], [5, 5], [2, 5], [4, 2], [4, 1], [3, 1], [2, 2], [1, 3], [2, 5], [3, 2]]; const truckSize = 35
 // const boxTypes = [[5, 10], [2, 5], [4, 7], [3, 9]], truckSize = 10
-console.log(maximumUnits(boxTypes, truckSize));
+console.log(maximumUnits(boxTypes, truckSize))

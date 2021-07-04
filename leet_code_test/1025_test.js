@@ -4,13 +4,11 @@
 
  最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作：
 
- 选出任一 x，满足 0 < x < N 且 N % x == 0 。
+ 选出任一 x，满足 0 < x < N 且 N % x === 0 。
  用 N - x 替换黑板上的数字 N 。
  如果玩家无法执行这些操作，就会输掉游戏。
 
  只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 False。假设两个玩家都以最佳状态参与游戏。
-
-
 
  示例 1：
 
@@ -23,51 +21,29 @@
  输出：false
  解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。
 
-
  提示：
 
  1 <= N <= 1000
  */
-
 
 /**
  * @param {number} N
  * @return {boolean}
  */
 var divisorGame = function (N) {
-    let index = 0
-    while (N > 1) {
-        for (let i = 0; i < N; i++) {
-            if (N % i == 0) {
-                N = N - i
-                index++
-                break
-            }
-        }
+  let index = 0
+  while (N > 1) {
+    for (let i = 0; i < N; i++) {
+      if (N % i === 0) {
+        N = N - i
+        index++
+        break
+      }
     }
-    return index % 2 !== 0
-};
+  }
+  return index % 2 !== 0
+}
 
-console.log(divisorGame(2));
-console.log(divisorGame(3));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(divisorGame(2))
+console.log(divisorGame(3))
 

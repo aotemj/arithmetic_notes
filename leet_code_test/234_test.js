@@ -10,7 +10,7 @@
  输入: 1->2->2->1
  输出: true
  进阶：
- 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+ 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
  */
 
 /**
@@ -24,17 +24,18 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+// eslint-disable-next-line no-unused-vars
 var isPalindrome = function (head) {
-    if (!head || !head.next) return true
-    let arr = []
-    while (head) {
-        arr.push(head.next)
-        head = head.next
+  if (!head || !head.next) return true
+  let arr = []
+  while (head) {
+    arr.push(head.next)
+    head = head.next
+  }
+  for (let i = 0; i < arr.length / 2; i++) {
+    if (arr[i] !== arr[arr.length - i]) {
+      return false
     }
-    for (let i = 0; i < arr.length / 2; i++) {
-        if (arr[i] != arr[arr.length - i]) {
-            return false
-        }
-    }
-    return true
-};
+  }
+  return true
+}

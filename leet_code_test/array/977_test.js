@@ -13,13 +13,11 @@
  输入：nums = [-7,-3,2,3,11]
  输出：[4,9,9,49,121]
 
-
  提示：
 
  1 <= nums.length <= 104
  -104 <= nums[i] <= 104
  nums 已按 非递减顺序 排序
-
 
  进阶：
 
@@ -44,41 +42,40 @@
  * @return {number[]}
  */
 var sortedSquares = function (nums) {
-    let minusArr = [],
-        positiveArr = [],
-        l = nums.length,
-        index = -1
-    for (let i = 0; i < l; i++) {
-        let item = nums[i]
-        if (item < 0) {
-            minusArr.unshift(Math.pow(item, 2))
-        } else {
-            if (index === -1) {
-                index = i
-                break
-            }
-        }
-    }
-    if (index === -1) {
-        return minusArr
+  let minusArr = []
+  let positiveArr = []
+  let l = nums.length
+  let index = -1
+  for (let i = 0; i < l; i++) {
+    let item = nums[i]
+    if (item < 0) {
+      minusArr.unshift(Math.pow(item, 2))
     } else {
-        positiveArr = nums.slice(index, l).map(item => Math.pow(item, 2))
-        let p1 = 0, p2 = 0, l1 = minusArr.length, l2 = positiveArr.length, res = []
-        while (p1 < l1 && p2 < l2) {
-            let item1 = minusArr[p1], item2 = positiveArr[p2]
-            if (item1 < item2) {
-                res.push(item1)
-                p1++
-            } else {
-                res.push(item2)
-                p2++
-            }
-        }
-        return res.concat(minusArr.slice(p1, l1), positiveArr.slice(p2, l2))
+      if (index === -1) {
+        index = i
+        break
+      }
     }
-};
-
+  }
+  if (index === -1) {
+    return minusArr
+  } else {
+    positiveArr = nums.slice(index, l).map(item => Math.pow(item, 2))
+    let p1 = 0; let p2 = 0; let l1 = minusArr.length; let l2 = positiveArr.length; let res = []
+    while (p1 < l1 && p2 < l2) {
+      let item1 = minusArr[p1]; let item2 = positiveArr[p2]
+      if (item1 < item2) {
+        res.push(item1)
+        p1++
+      } else {
+        res.push(item2)
+        p2++
+      }
+    }
+    return res.concat(minusArr.slice(p1, l1), positiveArr.slice(p2, l2))
+  }
+}
 
 // console.log(sortedSquares([-4, -1, 0, 3, 10]));
-console.log(sortedSquares([-1]));
+console.log(sortedSquares([-1]))
 // console.log(sortedSquares([-7, -3, 2, 3, 11]));

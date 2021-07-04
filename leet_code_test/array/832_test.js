@@ -19,7 +19,6 @@
 解释：首先翻转每一行: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]]；
      然后反转图片: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 
-
 提示：
 
 1 <= A.length = A[0].length <= 20
@@ -38,7 +37,7 @@ var flipAndInvertImage = function (image) {
     rollback(image[i])
   }
 
-  function rollback(arr) {
+  function rollback (arr) {
     const l = arr.length
     for (let i = 0; i < l; i++) {
       if (arr[i]) {
@@ -50,8 +49,7 @@ var flipAndInvertImage = function (image) {
   }
 
   return image
-};
+}
 
-
-console.log(flipAndInvertImage([[1, 1, 0], [1, 0, 1], [0, 0, 0]]));
-console.log(flipAndInvertImage([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]));
+console.log(flipAndInvertImage([[1, 1, 0], [1, 0, 1], [0, 0, 0]]))
+console.log(flipAndInvertImage([[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [1, 0, 1, 0]]))

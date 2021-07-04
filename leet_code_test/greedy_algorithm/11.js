@@ -22,7 +22,6 @@
  输入：height = [1,2,1]
  输出：2
 
-
  提示：
 
  n = height.length
@@ -35,23 +34,23 @@
  * @return {number}
  */
 var maxArea = function (height) {
-    const l = height.length
-    let start = 0, end = l - 1, maxArea = 0
-    while (start <= end) {
-        const current = height[start],
-            next = height[end],
-            currentArea = (end - start) * Math.min(current, next)
-        if (current < next) {
-            start++
-        } else {
-            end--
-        }
-        maxArea = Math.max(maxArea, currentArea)
+  const l = height.length
+  let start = 0; let end = l - 1; let maxArea = 0
+  while (start <= end) {
+    const current = height[start]
+    const next = height[end]
+    const currentArea = (end - start) * Math.min(current, next)
+    if (current < next) {
+      start++
+    } else {
+      end--
     }
-    return maxArea
-};
+    maxArea = Math.max(maxArea, currentArea)
+  }
+  return maxArea
+}
 // const height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
 // const height = [1, 1]
 // const height = [4, 3, 2, 1, 4]
 const height = [1, 2, 1]
-console.log(maxArea(height));
+console.log(maxArea(height))

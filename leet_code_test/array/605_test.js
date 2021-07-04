@@ -13,7 +13,6 @@
  输入：flowerbed = [1,0,0,0,1], n = 2
  输出：false
 
-
  提示：
 
  1 <= flowerbed.length <= 2 * 104
@@ -31,22 +30,22 @@
  * @return {boolean}
  */
 var canPlaceFlowers = function (flowerbed, n) {
-    let l = flowerbed.length, count = 0
+  let l = flowerbed.length; let count = 0
 
-    for (let i = 0; i < l; i++) {
-        const item = flowerbed[i]
-        if (count >= n) return true
-        if (item) {
-            i += 1
-        } else {
-            if (!flowerbed[i + 1]) {
-                count += 1
-                i += 1
-            }
-        }
+  for (let i = 0; i < l; i++) {
+    const item = flowerbed[i]
+    if (count >= n) return true
+    if (item) {
+      i += 1
+    } else {
+      if (!flowerbed[i + 1]) {
+        count += 1
+        i += 1
+      }
     }
-    return count >= n
-};
+  }
+  return count >= n
+}
 
-console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1));
-console.log(canPlaceFlowers([1, 0, 0, 0, 0, 0, 1], 2));
+console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1))
+console.log(canPlaceFlowers([1, 0, 0, 0, 0, 0, 1], 2))

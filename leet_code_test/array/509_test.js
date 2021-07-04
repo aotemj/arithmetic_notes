@@ -7,7 +7,6 @@
  F(n) = F(n - 1) + F(n - 2)，其中 n > 1
  给你 n ，请计算 F(n) 。
 
-
  示例 1：
 
  输入：2
@@ -24,7 +23,6 @@
  输出：3
  解释：F(4) = F(3) + F(2) = 2 + 1 = 3
 
-
  提示：
 
  0 <= n <= 30
@@ -38,6 +36,6 @@ var fib = function (n) {
   if (n === 0) return 0
   if (n === 1) return 1
   return fib(n - 1) + fib(n - 2)
-};
+}
 
-console.log(fib(4));
+console.log(fib(4))

@@ -20,7 +20,6 @@
  输入：s = "ac"
  输出："a"
 
-
  提示：
 
  1 <= s.length <= 1000
@@ -34,33 +33,33 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-    let l = s.length, index = 0, start = 0, maxL = 0;
-    if (l < 2) return s
-    while (index < l) {
-        let left = index, right = index
-        while (right < l - 1 && s.charAt(index + 1) === s.charAt(index)) {
-            index += 1
-            right += 1
-        }
-        while (left > 0 && right < l - 1 && s.charAt(left - 1) === s.charAt(right + 1)) {
-            left--;
-            right++;
-        }
-        index += 1
-
-        if (right - left + 1 > maxL) {
-            start = left
-            maxL = right - left + 1
-        }
+  let l = s.length; let index = 0; let start = 0; let maxL = 0
+  if (l < 2) return s
+  while (index < l) {
+    let left = index; let right = index
+    while (right < l - 1 && s.charAt(index + 1) === s.charAt(index)) {
+      index += 1
+      right += 1
     }
-    return s.substr(start, maxL)
-};
+    while (left > 0 && right < l - 1 && s.charAt(left - 1) === s.charAt(right + 1)) {
+      left--
+      right++
+    }
+    index += 1
+
+    if (right - left + 1 > maxL) {
+      start = left
+      maxL = right - left + 1
+    }
+  }
+  return s.substr(start, maxL)
+}
 
 // const s = "babad"
 // const s = "cbbd"
 // const s = "a"
 // const s = "edabcacbade"
 // const s = "bb"
-const s = "bbb"
+const s = 'bbb'
 // const s = "ababababa"
-console.log(longestPalindrome(s));
+console.log(longestPalindrome(s))
