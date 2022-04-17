@@ -74,12 +74,52 @@ var validMountainArray = function (arr) {
       }
     }
   }
-  return  res && !!arr1.length && !!arr2.length;
+  return res && !!arr1.length && !!arr2.length;
 };
-let arr = [2, 1];
+// let arr = [2, 1];
 // let arr = [3, 5, 5];
 // let arr = [0, 3, 2, 1];
 // let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // let arr = [1, 9, 1];
 // let arr = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-console.log(validMountainArray(arr));
+// console.log(validMountainArray(arr));
+
+
+// 双指针
+function validMountainArray2(arr) {
+  let length = arr.length;
+  if (length < 3) {
+    return false;
+  }
+  let left = 0;
+  let leftMax = arr[left];
+  let right = length - 1;
+  let rightMax = arr[right];
+  while (left < length - 1) {
+    if (arr[left] < arr[left + 1]) {
+      leftMax = arr[left + 1];
+      left++;
+    } else {
+      break;
+    }
+  }
+  while (right > 0) {
+    if (arr[right] < arr[right - 1]) {
+      rightMax = arr[right - 1];
+      right--;
+    } else {
+      break;
+    }
+  }
+  return left > 0 && right < length - 1 && rightMax === leftMax;
+}
+
+// let arr = [2, 1];
+// let arr = [3, 5, 5];
+// let arr = [0, 3, 2, 1];
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let arr = [1, 9, 1];
+// let arr = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+// let arr = [0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 11];
+// let arr = [1, 7, 9, 5, 4, 1, 2];
+console.log(validMountainArray2(arr));
