@@ -56,6 +56,6 @@ var solution = function (isBadVersion) {
         left = middle + 1
       }
     }
-    return right
+    return left
   }
 }
