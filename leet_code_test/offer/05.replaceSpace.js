@@ -20,4 +20,8 @@ var replaceSpace = function (s) {
   return s.replace(/\s/g, '%20')
 }
 
+var replaceSpace2 = function (s) {
+  return s.split(' ').join('%20')
+}
 console.log(replaceSpace('We are happy.'))
+console.log(replaceSpace2('We are happy.'))
