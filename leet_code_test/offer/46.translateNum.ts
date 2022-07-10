@@ -16,6 +16,11 @@
  * 0 <= num < 231
  * 通过次数194,872提交次数373,176
  */
+/**
+ * 思路：
+ *   动态规划:
+ *    dp[i] = dp[i-1]+ 前一个数字的最后一个数字是否可与当前数字形成翻译 ？dp[i-2]:0
+ */
 function translateNum(num: number): number {
   let str = String(num)
   let numArr: number[] = str.split('').map(item => Number(item))
