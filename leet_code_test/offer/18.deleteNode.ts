@@ -64,5 +64,5 @@ function deleteNode(head: ListNode | null, val: number): ListNode | null {
   }
   return newNode.next
 };
-const head: ListNode = [4, 5, 1, 9], val = 1
-deleteNode(head, val)
+// const head: ListNode = [4, 5, 1, 9], val = 1
+// deleteNode(head, val)
