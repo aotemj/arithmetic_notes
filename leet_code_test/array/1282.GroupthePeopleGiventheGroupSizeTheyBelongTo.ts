@@ -55,3 +55,27 @@ function groupThePeople(groupSizes: number[]): number[][] {
     }
     return result
 };
+
+/**
+ * 方法二
+ * @param groupSizes
+ */
+function groupThePeople2(groupSizes: number[]): number[][] {
+    let l =  groupSizes.length;
+    let result:number[][] = []
+    let map:{[key:string]:number[]} = {
+    }
+    for(let i =0;i<l;i++){
+        const item = groupSizes[i]
+        if(map[item]){
+            map[item].push(i)
+        }else {
+            map[item] = [i]
+        }
+        if(map[item].length ===item){
+            result.push(map[item])
+            map[item]= null
+        }
+    }
+    return result
+};
